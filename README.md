@@ -2,6 +2,7 @@
 FitStorm Project
 
 cd fitstorm
+
 meteor
 
 localhost:3000
