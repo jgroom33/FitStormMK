@@ -1,0 +1,60 @@
+<template name="SetsLive">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<button class="btn btn-default" id="go-back">
+					<span class="fa fa-chevron-left"></span>
+				</button>
+			</div>
+			<div class="col-md-12">
+				<h3 class='text-center'> {{ setDetail.setName }} </h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="text-center">
+				<!-- popcorn js target | used div to allow popcorn to play even w/out audio uploaded-->
+				<div id="setAudio"></div>
+				<div id="cueAudio" style="display: none;"></div>
+
+				<!-- Audio Wrapper -->
+				<div class='audio-wrapper'>
+					<audio preload="auto" id="audio-item"></audio>
+				</div>
+				
+				<!-- Controls -->		
+				<div>
+					<button class="btn default backward-btn {{disabledClass}}">
+						<span class="fa fa-backward {{disabledClass}}"></span>
+					</button>
+					<button class="btn default" id="playbutton">
+						<span class="fa fa-{{playBtnClass}}"></span>
+					</button>
+					<button class="btn default forward-btn {{disabledClass}}">
+						<span class="fa fa-forward {{disabledClass}}"></span>
+					</button>
+					<!-- <canvas id="playbutton" width="75" height="75" class=""></canvas> -->
+				</div>
+
+				<!-- Countdown Timer -->
+				<div class="row">
+					<p class="timer-wrapper text-warning"> 
+						{{ getCountdownTimer }} <!-- countdown timer -->
+					</p>				
+				</div>
+
+				<!-- Exercise List -->
+				<div class="row set-exercises-wrapper">
+					<!--  Exercise List -->
+					{{#each getSetExercises}}
+						<p id="set-exercise-item-{{_id}}">
+							{{ exercise }}
+						</p>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+
