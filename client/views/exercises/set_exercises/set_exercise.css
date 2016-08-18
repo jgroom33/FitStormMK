@@ -1,0 +1,17 @@
+.update-set-exercises {
+	border: 1px solid #d3d3d3; 
+	border-radius: 5px;
+	padding: 1em;
+}
+.new-exercise-wrapper {
+	margin: 20px 0px;
+}
+.new-exercise-wrapper:nth-child(odd) {
+	background-color: #fafafa;
+}
+.new-exercise-wrapper:nth-child(even) {
+	background-color: #ededed;
+}
+.custom-well {
+	margin-bottom: 0 !important;
+}

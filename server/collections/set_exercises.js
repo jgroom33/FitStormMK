@@ -35,16 +35,30 @@ SetExercises.before.remove(function(userId, doc) {
 });
 
 SetExercises.after.insert(function(userId, doc) {
-	
-Sets.update({ _id: doc.setId}, {$inc: { "setDuration": doc.duration }});
+	var setDuration = 0;
+	_.map(doc.exercises, function(exercise) { setDuration += exercise.duration; });
+	setDuration = parseInt(doc.cycle) * setDuration;
+	Sets.update({ _id: doc.setId}, {$inc: { "setDuration": setDuration }});
 });
 
 SetExercises.after.update(function(userId, doc, fieldNames, modifier, options) {
-	
-Sets.update({ _id: doc.setId}, {$set: { "setDuration": _.reduce(SetExercises.find({ setId: doc.setId }).fetch(), function(sum, item){ return sum + item.duration; }, 0) }});
+	var setExercises = SetExercises.find({ setId: doc.setId }).fetch();
+	var totalSetDuration = 0;
+
+	_.each(setExercises, function(setExercise) 
+	{
+		subSetDuration = 0;
+		subSetDuration += _.reduce(setExercise.exercises, function(sum, item) { return sum + item.duration; }, 0);
+		totalSetDuration = (setExercise.cycle * subSetDuration) + totalSetDuration;
+	});
+
+	Sets.update({ _id: doc.setId}, {$set: { "setDuration": totalSetDuration }});
 });
 
 SetExercises.after.remove(function(userId, doc) {
-	
-Sets.update({ _id: doc.setId}, {$inc: { "setDuration": (-1*doc.duration) }});
+	var setDuration = 0;
+
+	_.map(doc.exercises, function(exercise) { setDuration += exercise.duration; });
+	setDuration = parseInt(doc.cycle) * setDuration;
+	Sets.update({ _id: doc.setId}, {$inc: { "setDuration": (-1*setDuration) }});
 });

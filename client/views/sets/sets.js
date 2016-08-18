@@ -26,7 +26,7 @@ var SetsViewItems = function(cursor) {
 	
 	_.each(raw, function(set) {
 		if(set.type.indexOf('AMRAP') > -1) {
-			set.setDuration = pluralize('min', set.timeframe, true);
+			set.setDuration = pluralize('min', set.timeframe || 0, true);
 		}else{
 			set.setDuration = pluralize('sec', set.setDuration, true);
 		}

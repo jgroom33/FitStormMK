@@ -2,35 +2,31 @@
 	{{#if exerciseAction}}
 		<div>
 			<h2>
-				{{ exerciseAction }} exercise
+				{{ exerciseAction }} set exercises
 			</h2>
-			<div class="">
+			<div class="update-set-exercises">
 				<div class="form-group">
-					<label> Exercise: </label>
-					<select class="form-control" name="exercise" autofocus="autofocus" id="select-exercise" value="{{ getSelectValue }}">
-						{{#each exercises}}
-							<option data-id="{{_id}}" value="{{name}}" {{optionIsSelected getSelectValue name }}> {{name}} </option>
-						{{/each}}
-					</select>
-					<input type="hidden" value="{{exerciseId}}" />	
+					<label> Cycle: </label>
+					<input class="text-center" type="number" name="cycle" value="{{ getCycle }}" required />
 				</div>
-				<div class="form-group {{#if isReadOnly }} hidden {{/if}}">
-					<label> {{ getLabel }}: </label>
-					<input type='number' value="{{ getDurationValue }}" class="form-control" id="exercise-duration" readonly="{{isReadOnly}}"/>
-				</div>
-				<div class="form-group hidden">
-					<label> Cue: </label>
-					{{#if isRecording}}
-						<p class="text-lead">Recording ...</p>
-						<button type="button" class="btn btn-danger" id='record-cue-stop'> Stop Recording </button>
+				<ul class="form-inline no-style" role="form" id="exercise-group-wrapper">
+					{{#if isAdding}}
+						{{> addSetExercisesList isReadOnly=isReadOnly exercises=exercises label=getLabel getDurationValue=getDurationValue}}
 					{{else}}
-						<button type="button" class="btn btn-primary" id='record-cue-start'> Start Recording </button>
+						{{> editSetExercisesList isReadOnly=isReadOnly exercises=exercises label=getLabel selectedSetExercises=selectedSetExercises}}
 					{{/if}}
-				</div>
+				</ul>
 				<div class="form-group">
-					<button class="btn btn-success save-exercise" type="button" data-id="{{ getSelectedId }}">
+					<button type="button" class="btn btn-primary" id="add-new-exercise"> 
+						<span class="fa fa-plus"></span>
+						Add Exercise
+					</button>
+				</div>
+				
+				<div>
+					<button class="btn btn-success save-set-exercise" type="button" data-id="{{ getSelectedId }}">
 						<span class="fa fa-check"></span>
-						Save Exercise
+						Save Set Exercises
 					</button>
 					<button class="btn btn-default cancel-exercise" type="button">
 						Cancel
@@ -41,51 +37,31 @@
 	{{else}}
 		<button class="btn btn-success add-exercise" type='button'>
 			<span class="fa fa-plus"></span>
-			Add Exercise
-		</button>
+			Add New Set Exercises
+		</button><br/>
 	{{/if}}
 	<br />
 
 	{{#if hasExercises}}
-		<div class="container">
-			<table id="dataview-table" class="table table-striped table-hover">
-				<thead id="dataview-table-header">
-					<tr id="dataview-table-header-row">
-						<th class="th-sortable" data-sort="name">
-							#
-						</th>
-						<th class="th-sortable" data-sort="name">
-							Exercise Name
-						</th>
-						<th>
-							{{ getLabel }}
-						</th>
-						<th colspan="3">
-							&nbsp;
-						</th>
-					</tr>
-				</thead>
-				<tbody id="dataview-table-items">
-					{{#each getExercises}}
-						<tr>
-							<td> {{incremented @index}} </td>
-							<td> {{exercise}} </td>
-							<td> {{duration}} </td>
-							<td>&nbsp;</td>
-							<td class="td-icon">
-								<a href="#" class="edit-exercise" data-id="{{_id}}">
-									<span class="fa fa-pencil"></span>
-								</a>
-							</td>
-							<td class="td-icon">
-								<a href="#" class="delete-exercise" data-id="{{_id}}">
-									<span class="fa fa-trash"></span>
-								</a>
-							</td>
-						</tr>
+		{{#each getExercises}}
+			<div class="well well-sm custom-well">
+				<button type="button" class="btn btn-default pull-right delete-set-exercises"> 
+					<span class="fa fa-trash"></span>
+				</button>		
+				<button type="button" class="btn btn-default pull-right edit-set-exercises">
+					<span class="fa fa-pencil"></span>
+				</button>
+				<p>
+					Cycle
+					<span class="badge"> {{ cycle }} </span>
+				</p>
+				<ul class="no-style">
+					{{#each this.exercises}}
+						<li> {{exercise}} - {{duration}} </li>
+						
 					{{/each}}
-				</tbody>
-			</table>
-		</div>
+				</ul>
+			</div>
+		{{/each}}
 	{{/if}}
 </template>

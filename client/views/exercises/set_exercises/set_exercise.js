@@ -6,6 +6,7 @@ var pageSession = new ReactiveDict(),
 Template.AddExercises.rendered = function() {
 	params = this.data.params;
 	set_exercises =  [];
+	pageSession.set('setType', 'AMRAP');
 
 	if(params.hasOwnProperty('setId')) {
 		set_exercises = this.data.set_exercises.fetch();
@@ -31,24 +32,19 @@ Template.AddExercises.helpers({
 	"getExercises" : function() {
 		return pageSession.get('set_exercises');
 	},
-	"getSelectValue": function() {
-		action = pageSession.get('exerciseAction');
-		if(action && action.indexOf('Edit') > -1) {
-			return getValue(pageSession.get('selectedExercise'), 'exercise');
-		}else {
-			return 'Push-up';
-		}
-	},
 	"exercises": function(){
 		return exercises;
+	},
+	"isAdding" : function() {
+		return isAdding(pageSession.get('exerciseAction'));
 	},
 	"getDurationValue" : function(){
 		action = pageSession.get('exerciseAction');
 		setType = pageSession.get('setType');
 		duration = getDurationByType(setType);
 
-		if(action && action.indexOf('Edit') > -1) {
-			duration = getValue(pageSession.get('selectedExercise'), 'duration');
+		if(action && !isAdding(action)) {
+			duration = getValue(pageSession.get('selectedSetExercises'), 'duration');
 		}		
 		return duration;
 	},
@@ -65,43 +61,59 @@ Template.AddExercises.helpers({
 	"isReadOnly": function() {
 		setType = pageSession.get('setType');
 		return (setType && (setType.indexOf('EMOM') > -1 || setType.indexOf('Tabata') > -1));
+	},
+	"selectedSetExercises" : function(){
+		return pageSession.get('selectedSetExercises');
+	},
+	"getCycle" : function() {
+		action = pageSession.get('exerciseAction');
+		selectedSetExercises = pageSession.get('selectedSetExercises');
+		if(action && isAdding(action)) {
+			return 1;
+		}
+		return selectedSetExercises.cycle;
 	}
 });
 
 Template.AddExercises.events({
-	"click .save-exercise" : function(e) 
+	"click .save-set-exercise" : function(e) 
 	{
 		e.preventDefault();
 		var set_exercises 	 = pageSession.get('set_exercises'),
-			action       = pageSession.get('exerciseAction'),
-			selectedExercise = pageSession.get('selectedExercise'),
-			$select         = $('#select-exercise')
-			newExercise  = 
-					{
-						'exercise'   : $select.val(),
-						'duration'   : parseFloat($('#exercise-duration').val()),
-						'setId'	     : params.setId,
-						'recordId'   : pageSession.get('record_id'),
-						'exerciseId' : $select.find("option:selected").data('id')
-					};
+			action       	 = pageSession.get('exerciseAction'),
+			selectedSetExercises = pageSession.get('selectedSetExercises'),
+			$setExercisesWrapper = $('.new-exercise-wrapper'),
+			cycle = $("input[name='cycle']").val() || 1,
+			newSetExercise     = {setId: params.setId, cycle: cycle, exercises: []}; 
 
-		if(action.indexOf('Add') > -1) {
-			newId = SetExercises.insert(newExercise);
-			newExercise._id = newId;
+		$setExercisesWrapper.each(function(index, exercise) 
+		{
+			var _this  	     = $(exercise),
+				duration   	 = parseFloat(_this.find('#exercise-duration').val()),
+				exerciseId 	 = _this.find('.select-exercise').find("option:selected").data('id'),
+				exerciseName = _this.find('.select-exercise').val();
 
-			set_exercises.push(newExercise);
-		}else {
-			index = _.pluck(set_exercises, '_id').indexOf(selectedExercise[0]._id);
+			newSetExercise.exercises.push({exercise: exerciseName, duration: duration, exerciseId: exerciseId})
+		});
+
+		if(action.indexOf('Add') > -1) 
+		{
+			newId = SetExercises.insert(newSetExercise);
+			newSetExercise._id = newId;
+
+			set_exercises.push(newSetExercise);
+		}
+		else {
+			index = _.pluck(set_exercises, '_id').indexOf(selectedSetExercises._id);
 			SetExercises.update(
-				{_id: selectedExercise[0]._id},
+				{_id: selectedSetExercises._id},
 				{$set: 
 				{
-			        'exercise' : newExercise.exercise,
-			        'duration' : newExercise.duration,
-			        'recordId' : (pageSession.get('record_id') ? pageSession.get('record_id') : set_exercises[index].recordId)
+			        'cycle': cycle,
+			        'exercises': newSetExercise.exercises
 			    }
 			});
-			set_exercises[index] = newExercise;
+			set_exercises[index] = newSetExercise;
 		}
 		pageSession.set('exerciseAction', null);
 		pageSession.set('hasExercises', set_exercises.length);
@@ -115,14 +127,15 @@ Template.AddExercises.events({
 		e.preventDefault();
 		pageSession.set('exerciseAction', null);
 	},
-	"click .edit-exercise": function(e, t) {
+	"click .edit-set-exercises": function(e, t) {
 		e.preventDefault();
-		var $targetId = $(e.target).parent().data('id');
+		var $targetId = this._id;
 		setExercise = $.grep(pageSession.get('set_exercises'), function(exrcse){ return exrcse._id == $targetId; });
+		pageSession.set('selectedSetExercises', setExercise[0] || {});
 		pageSession.set('exerciseAction', 'Edit');
-		pageSession.set('selectedExercise', setExercise);
 	},
-	"click .delete-exercise": function(e) {
+	"click .delete-exercise": function(e)
+	{
 		e.preventDefault();
 		var self = this;
 		bootbox.dialog({
@@ -165,13 +178,26 @@ Template.AddExercises.events({
 		e.preventDefault();
 		pageSession.set('isRecording', false);
 		Records.stopRecording();
+	},
+	"click #add-new-exercise" : function(e, t) {
+		$newExerciseField = $('.new-exercise-wrapper.orig').clone();
+		$newExerciseField.removeClass('orig');
+		$newExerciseField.appendTo('#exercise-group-wrapper');
+	},
+	"click .delete-set-exercises" : function(e) {
+		var setExerciseId = this._id;
+		var set_exercises = _.reject(pageSession.get('set_exercises'), function(setExercise) {
+			return setExercise._id == setExerciseId;
+		});
+		SetExercises.remove(this._id);
+		pageSession.set('set_exercises', set_exercises);
 	}
 });
 
 getValue = function(obj, index){
 	return obj[0][index];
 }
-getExercises = function(){
+getExercises = function() {
 	return pageSession.get('set_exercises');
 }
 
@@ -190,4 +216,8 @@ getDurationByType = function(setType){
 	    default:
 	        return 30;
 	}	
+}
+
+isAdding = function(str) {
+	return (str.indexOf('Add') > -1);
 }

@@ -64,7 +64,7 @@ Template.Register.events({
 			{
 				pageSession.set("errorMessage", "");
 				pageSession.set("verificationEmailSent", true);
-				saveFreeSets();
+				// saveFreeSets();
 			}
 		});
 		return false;
