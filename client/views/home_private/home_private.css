@@ -1,149 +1,338 @@
-#radio .topbar {
-    background-color: #f9f9f9;
-    margin-top: 50px;
-    padding: 10px 5px 1px 10px;
+.sticky-wrapper{
+    background-color: #000000;
+    
+}
+
+.recent{
+    height: 40px !important;
+    padding: 4px !important;
+}
+
+#radio .recent button{
     text-align: center;
-}
-#radio .topbar ul li span {
-    text-transfrom: uppercase;
-}
-#radio .topbar ul li button {
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 1px 2px 3px #444;
-    color: #224099;
-    font-weight: 800;
-    border-radius: 40px;
-    padding: 10px 30px;
-}
-#radio .topbar ul li .ult {
-    background-color: #999;
+    background-color: #4caf50;
     color: #fff;
+    font-weight: 200;
+    border-radius: 40px;
+    padding: 3px 30px;
+    box-shadow: 0 3px 3px rgb(36, 87, 38);
+    -webkit-box-shadow: 0 3px 3px rgb(36, 87, 38);
 }
-#radio .topbar ul li i {
-    font-size: 26px;
-    padding-right: 50px;
+
+.txt-az{
+    color: #000;
+    font-size: 14px;
+
 }
+
+.list-div{
+    display: table;
+    width: 100%;
+    margin-bottom: 0px;
+    padding: 1em;
+}
+
+.underline{
+    border-bottom: 1px solid #5a5a5a;
+    border-width: thin;
+}
+
+.list-title{
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 20px;
+     color: #ff9e45;
+     padding-left: 0.5em !important;
+ }
+
+.list-duration{
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 16px;
+     color: #fff;
+     text-align: right;
+     padding-left: 1em !important;
+     padding-top: 0.3em !important;
+ }
+
+ .list-btn{
+     padding-right: 1em !important;
+     width: 120px;
+     float: right;
+ }
+
+ .panel-collapse{
+     background-color: #353535;
+     color: #fff;
+     float: left;
+     width: 100%;
+     padding-left: 2em;
+ }
+
+ h6{
+     color: #fff;
+ }
+
 #radio .recent {
-    background-color: #eee;
+    background-color: #dadada;
     text-align: center;
     margin-top: 0px;
     border-bottom: 1px solid #999;
     height: 60px;
+    padding: 1em;
 }
-#radio .recent ul {
-    margin-bottom: 0;
+
+.col-xs-6{
+    padding: 0px;
 }
-#radio .recent button {
-    text-align: center;
-    background-color: #224099;
+
+.div-voice{
+    width: 150px;
+    margin: 2em auto;
+}
+
+.voice-text{
     color: #fff;
-    font-weight: 200;
-    border-radius: 40px;
-    padding: 5px 30px;
+    font-size: 14px;
 }
-#radio .recent p {
-    font-size: 26px;
-    padding-top: 5px;
-}
-#radio .creat,
-#radio .shafl {
-    height: 60px;
-    background-color: #eee;
-    margin-top: 0;
-    padding-top: 0;
-}
-#radio .creat .icon,
-#radio .shafl .icon {
-    margin-top: 10px;
-    margin-left: 10px;
-    display: inline-block;
-    heighr: 40px;
-    width: 40px;
-    background-color: #224099;
-    border-radius: 50%;
-    line-height: 40px;
-    text-align: center;
-    color: #fff;
-    font-size: 20px;
-}
-#radio .creat span,
-#radio .shafl span {
-    font-size: 24px;
-    margin-left: 20px;
-}
-#radio .shafl {
-    border-top: 1px solid #999;
-}
-#radio .shafl .icon {
-    background-color: #6080dc;
-}
-#radio .shafl span {
-    font-size: 20px;
-    margin-left: 20px;
-}
-#radio .songs {
-    background-color: #224099;
-}
-#radio .songs ul {
-    margin-bottom: 0;
-}
-#radio .songs ul li .img img {
-    height: 60px;
-    width: 60px;
-    float: left;
-    margin-top: 8px;
-    margin-left: 10px;
-}
-#radio .songs ul li .img span {
-    display: inline-block;
-    margin-left: 20px;
-}
-#radio .songs ul li .img span .tack-mame p {
-    font-weight: 600;
-    margin-top: 17px;
-    color: #fff;
-}
-.button {
+
+.dur-btn{
+    width: 50%;
     float: right;
-    margin-right:10px;
+}
 
-}
-.songspuse {
-    background-color: #eee;
-    margin-top: 0;
-    border-top: 1px solid #999;
-    cursor: pointer;
-}
-.songspuse ul {
-    margin-bottom: 0;
-}
-.songspuse ul li .img img {
-    height: 60px;
-    width: 60px;
-    float: left;
-    margin-top: 8px;
-    margin-left: 10px;
-}
-.songspuse ul li .img span {
-    display: inline-block;
-    margin-left: 20px;
-}
-.songspuse ul li .img span .tack-mame {
-    width: 100%;
-}
-.songspuse ul li .img span .tack-mame p {
-    font-weight: 600;
-    margin-top: 17px;
-    color: #1a1a1a;
-}
-.songspuse:hover {
-    background-color: #224099;
-    -webkit-transition: 0.3s all;
-    transition: 0.3s all;
-}
-.songspuse:hover ul li span .tack-mame p,
-.songspuse:hover ul li span .tack-mame h6{
+.txt-dur{
+    width: 80px;
+    float: right;
+    font-size: 16px;
     color: #fff;
+    padding-top: 0.3em;
 }
 
+.fix-width{
+    width: 100px;
+}
+
+/* modal dialog */
+.modal-content{
+    background: rgba(230, 230, 230, 0.9);
+
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.modal-txtbtn{
+    width: 100% !important;
+    display: flex;
+    display: -webkit-flex;
+    padding: 0.3em;
+}
+
+.modal-txt{
+    width: 50% !important;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #353535;
+    padding-left: 3em;
+}
+
+.modal-btn{
+    width: 50%;
+}
+
+.modal-btn > .btn-xs{
+    width: 75px;
+     
+}
+
+.modal-footer{
+    text-align: center;
+}
+
+
+
+/*static-list*/
+
+.list-block{
+    font-size: 20px;
+}
+
+.col-xs-8{
+    font-size: 1em;
+    padding-left: 0em;
+}
+
+.col-xs-4{
+    padding: 0em;
+}
+
+.col-xs-3, .col-xs-9, .col-xs-2, .col-xs-10{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.list-dev-txt{
+    font-size: 1.5em !important;
+    padding-left: 2em;
+}
+
+.fa-stack {
+    position: relative;
+    display: inline-block;
+    width: 1em !important;
+    height: 1.8em !important;
+    line-height: 1.8em !important;
+    vertical-align: middle;
+}
+
+.list-dur{
+    padding-left: 0.5em;
+}
+
+.list-item{
+    padding-left: 1em;
+}
+
+.bracket-second{
+    font-size: 2em;
+    padding-left: 0.2em;
+}
+
+.bracket-first{
+    font-size: 5em;
+    height: 2.1em;
+}
+
+.img-first{
+    padding-top: 0.1em;
+    height: 2.1em;
+    width: 0.3em;
+}
+
+.img-second{
+    height: 1.5em;
+    width: 0.5em;
+}
+
+.repeat-align-first{
+    margin-top: 3em;
+    margin-right: 0.5em;
+    float: right;
+}
+
+.repeat-align-second{
+    margin-right: 0.5em;
+    float: right;
+}
+
+.ex-list{
+    padding-top: 1px;
+}
+
+
+/* responsive */
+@media only screen and (max-width : 460px) {
+    
+    .modal-content{
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+}
+
+@media only screen and (max-width : 446px){
+
+    .txt-dur{
+        display: none;
+        width: 100%;
+        
+    }
+
+    .dur-btn{
+        float: right;
+    }
+
+}
+
+@media only screen and (max-width : 278px) {
+    .col-xs-6{
+        width: 100%;
+    }
+
+    .dur-btn{
+        width: 100%;
+        float: right;
+    }       
+
+}
+
+@media only screen and (max-width : 408px){
+    .modal-content{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .modal-txt{
+        width: 100% !important;
+        padding-left: 1em !important;
+    }
+
+    .modal-btn{
+        width: 100% !important;
+    }
+
+    .modal-txtbtn{
+        display: block !important;
+    }
+}
+
+
+@media only screen and (max-width : 665px) {
+    
+    .panel-collapse{
+        padding-left: 0.5em;
+    }
+
+    .repeat-align-second{
+        margin-right: 0em;
+        float: right;
+    }
+
+    .list-dur{
+        padding-left: 0em;
+    }
+
+    .list-item{
+        padding-left: 0.5em;
+    }
+
+    .col-xs-2{
+        width: 20%;
+    }
+
+    .col-xs-10{
+        width: 80%;
+    }
+
+}
+
+@media only screen and (max-width : 474px) {
+    
+    .col-xs-2{
+        width: 25%;
+    }
+
+    .col-xs-10{
+        width: 75%;
+    }
+
+}
+
+@media only screen and (min-width : 1080px) {
+    
+    .col-xs-2{
+        width: 10%;
+    }
+
+    .col-xs-10{
+        width: 90%;
+    }
+
+}
