@@ -51,7 +51,6 @@
 				<span class="fa fa-chevron-left">
 				</span>
 			</a>
-			{{set_details.setName}}
 		</h2>
 		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
@@ -71,50 +70,54 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static control-field-set-name">
-						{{set_details.setName}}
+						{{ set_details.setName }}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-set-duration hidden">
-				<label for="setDuration" class="col-sm-3 control-label">
-					Duration
+			<div class="form-group field-difficulty">
+				<label for="difficulty" class="col-sm-3 control-label">
+					Difficulty
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static control-field-set-duration">
-						{{set_details.setDuration}}
+					<p class="form-control-static control-field-difficulty">
+						{{set_details.difficulty}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-type">
-				<label for="type" class="col-sm-3 control-label">
-					Type
+			<!-- 'new set exercises view' -->
+			<div class="form-group field-set-exercises">
+				<label for="set-exercises" class="col-xs-12 control-label">
+					Set Exercises
 				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static control-field-type">
-						{{set_details.type}}
-					</p>
-				</div>
+				<div class="clearfix list-block">
+	                {{#each set_details.set_exercises_joined}}
+	                    {{#if isSingleCycle cycle}}
+	                        <div class="col-xs-3"></div>
+	                    {{else}}
+	                        <div class="col-xs-3">
+	                            <div class="pull-right bracket-div">
+	                                <img class="img-bra" src="/images/bracket.png" style="height : {{ getBracketHeight exercises.length }}em;" />
+	                            </div>
+	                            <div class="stacked-icons repeat-align-second" style="margin-top: {{centerToBracket exercises.length }}em;">
+	                                <span class="fa-stack fa-2x">
+	                                    <i class="fa fa-refresh fa-stack-1x"></i>
+	                                    <span class="fa-stack-1x" style="font-size:12px; color:white;"> {{ cycle }} </span>
+	                                </span>
+	                            </div>
+	                        </div>
+	                    {{/if}}
+	                    <div class="col-xs-9">
+	                        {{#each exercises}}
+	                            <div class="ex-list">
+	                                <span class="list-dur"> {{ duration }}s </span>
+	                                <span class="list-item"> {{ exercise }} </span>
+	                            </div>
+	                        {{/each}}
+	                    </div>
+	                {{/each}}
+	            </div>
 			</div>
-			<div class="form-group  field-publish">
-				<label for="publish" class="col-sm-3 control-label">
-					Publish
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static control-field-publish">
-						{{booleanToYesNo set_details.publish}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-song-id">
-				<label for="songId" class="col-sm-3 control-label">
-					Song (mp3 only)
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static control-field-song-id">
-						{{set_details.songId}}
-					</p>
-				</div>
-			</div>
+			<!-- end of 'new set exercises view' -->
 			<div class="form-group">
 				<div class="submit-div col-sm-9 col-sm-offset-3">
 				</div>

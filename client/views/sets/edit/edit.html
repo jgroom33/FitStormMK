@@ -79,7 +79,7 @@
 					<input class="form-control" type="number" value="{{set_details.timeframe}}" name="timeframe" placeholder="Enter Timeframe in minutes">
 				</div>
 			</div>
-			<div class="form-group  field-publish">
+			<div class="form-group  field-publish hidden">
 				<div class="input-div">
 					<div class="checkbox">
 						<label>
@@ -91,6 +91,18 @@
 					</span>
 					<span id="error-text" class="help-block">
 					</span>
+				</div>
+			</div>
+			<div class="form-group difficulty">
+				<label form="difficulty">
+					Difficulty
+				</label>
+				<div class="input-div">
+					<select name="difficulty" class="form-control" value="easy">
+						<option value="easy" {{optionIsSelected set_details.difficulty "easy"}}> Easy </option>
+						<option value="moderate" {{optionIsSelected set_details.difficulty "moderate"}}> Moderate </option>
+						<option value="hard" {{optionIsSelected set_details.difficulty "hard"}}> Hard </option>
+					</select>
 				</div>
 			</div>
 			<div class="form-group">

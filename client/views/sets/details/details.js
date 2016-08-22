@@ -126,8 +126,10 @@ Template.SetsDetailsDetailsForm.helpers({
 	},
 	"errorMessage": function() {
 		return pageSession.get("setsDetailsDetailsFormErrorMessage");
+	},
+	"isSingleCycle" : function(cycle){
+		return cycle == 1;
 	}
-	
 });
 
 

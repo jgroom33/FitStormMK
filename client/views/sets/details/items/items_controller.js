@@ -37,12 +37,9 @@ this.SetsDetailsItemsController = RouteController.extend({
 		var data = {
 			params: this.params || {},
 			set_exercises: SetExercises.find({setId:this.params.setId}, {}),
-			set_details: Sets.findOne({_id:this.params.setId}, {})
+			set_details: Sets.findOne({ _id:this.params.setId },{ transform: function(doc){ doc.setName = doc.setName.toUpperCase();  doc.set_exercises_joined = SetExercises.find({setId: doc._id}).fetch(); doc.songDetail = Songs.findOne(doc.songId); return doc; }}),
 		};
-		
-
-		
-
+	
 		return data;
 	},
 

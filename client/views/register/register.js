@@ -91,7 +91,7 @@ saveFreeSets = function() {
 		newSetExercise = {};
 
 	// free set 1
-	set_one_id = Sets.insert({setName: 'Free set 1', type: 'Interval', songUrl: songUrl, isDefault: true});
+	set_one_id = Sets.insert({setName: 'Free set 1', type: 'Interval', difficulty: 'easy', songUrl: songUrl, isDefault: true});
 	set_one_exercises = [
 		{exercises: ["Silent"], cycle: 1},
 		{exercises: ["Push ups"], cycle: 1},
@@ -113,7 +113,7 @@ saveFreeSets = function() {
 	});
 
 	// free set 2
-	set_two_id = Sets.insert({setName: 'Free set 2', type: 'Interval', songUrl: songUrl, isDefault: true});
+	set_two_id = Sets.insert({setName: 'Free set 2', type: 'Interval', difficulty: 'easy', songUrl: songUrl, isDefault: true});
 	set_two_exercises = set_one_exercises;
 	set_two_exercises.forEach(function(exercisesObj) {
 		newSetExercise = {ownerId: Meteor.userId(), setId: set_two_id, cycle: exercisesObj.cycle, exercises: []};
@@ -125,7 +125,7 @@ saveFreeSets = function() {
 	});
 
 	// free set 2
-	set_3_id = Sets.insert({setName: 'Free set 3', type: 'Interval', songUrl: songUrl, isDefault: true});
+	set_3_id = Sets.insert({setName: 'Free set 3', type: 'Interval', difficulty: 'easy', songUrl: songUrl, isDefault: true});
 	set_3_exercises = set_one_exercises;
 	set_3_exercises.forEach(function(exercisesObj) {
 		newSetExercise = {ownerId: Meteor.userId(), setId: set_3_id, cycle: exercisesObj.cycle, exercises: []};

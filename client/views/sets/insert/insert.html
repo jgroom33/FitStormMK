@@ -97,6 +97,19 @@
 				</div>
 			</div>
 
+			<div class="form-group difficulty">
+				<label form="difficulty">
+					Difficulty
+				</label>
+				<div class="input-div">
+					<select name="difficulty" class="form-control" value="easy">
+						<option value="easy"> Easy </option>
+						<option value="moderate"> Moderate </option>
+						<option value="hard"> Hard </option>
+					</select>
+				</div>
+			</div>
+
 			{{#if isUploading}}
 				<div class="notification">
 	           		<p class="lead">
@@ -105,7 +118,7 @@
 	            	</p>
 	          	</div>
 			{{else}}
-				<div class="form-group  field-publish">
+				<div class="form-group  field-publish hidden">
 					<div class="input-div">
 						<div class="checkbox">
 							<label>

@@ -5,7 +5,8 @@ Accounts.config({ sendVerificationEmail: verifyEmail });
 Meteor.startup(function() {
 
 	Meteor.AppCache.config({
-		onlineOnly: ['/fonts/','/images/','/videos/','/packages/']
+		onlineOnly: ['/fonts/','/images/','/videos/','/packages/'],
+		chrome: false
 	});
 
 	// read environment variables from Meteor.settings

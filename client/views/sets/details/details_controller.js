@@ -19,7 +19,7 @@ this.SetsDetailsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("set_details", this.params.setId)
+			Meteor.subscribe("set_details", this.params.setId),
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -34,7 +34,7 @@ this.SetsDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			set_details: Sets.findOne({_id:this.params.setId}, {})
+			set_details: Sets.findOne({ _id:this.params.setId },{ transform: function(doc){ doc.setName = doc.setName.toUpperCase();  doc.set_exercises_joined = SetExercises.find({setId: doc._id}).fetch(); doc.songDetail = Songs.findOne(doc.songId); return doc; }}), //,{sort:[["setName","desc"]]}
 		};
 		
 
