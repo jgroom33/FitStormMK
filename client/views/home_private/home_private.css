@@ -1,5 +1,5 @@
 .sticky-wrapper{
-    background-color: #000000;
+    background-color: #1a1a1a;
     
 }
 
@@ -75,7 +75,7 @@
     background-color: #dadada;
     text-align: center;
     margin-top: 0px;
-    border-bottom: 1px solid #999;
+    border-bottom: 2px solid #2196f3;
     height: 60px;
     padding: 1em;
 }
@@ -108,7 +108,7 @@
 }
 
 .fix-width{
-    width: 100px;
+    width: 110px;
 }
 
 /* modal dialog */

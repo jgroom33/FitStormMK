@@ -12,6 +12,7 @@ Template.SetsDetails.events({
 		Sets.update({ _id: id }, {$inc: { preview_count: -1 }});
 		Router.go("sets.live", { setId: id });
 	}
+
 });
 
 Template.SetsDetails.helpers({
@@ -111,11 +112,14 @@ Template.SetsDetailsDetailsForm.events({
 
 		/*CLOSE_REDIRECT*/
 	},
+	
+	
 	"click #form-back-button": function(e, t) {
 		e.preventDefault();
 
 		Router.go("sets", {});
 	}
+	
 
 	
 });

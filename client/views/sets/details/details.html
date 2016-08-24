@@ -1,43 +1,45 @@
 <template name="SetsDetails">
 	<div class="page-container container">
 		<div class="row">
-			<div class="col-md-12" id="content">
-				<div class="row" id="title_row">
-					<div class="col-md-12">
-						<div id="page_menu" class="pull-right">
-						</div>
-					</div>
+			<div id="page_menu" class="set-title">
+				<div class="title-middle">
+				<span>{{ set_details.setName }}</span>
+				<a href="#" id="form-back-button" class="pull-left back-btn" title="back">
+					<span class="fa fa-chevron-left fa-1x"></span>
+				</a>
 				</div>
-				{{> SetsDetailsDetailsForm}}
-				<div class="form-horizontal">
-					<h5>
-						{{#if set_details.isDefault}}
-							<a href="#" class="execute-set-btn text-lead">
-								Smash it!
-							</a>
-						{{/if}}
+			</div>
+				
+			{{> SetsDetailsDetailsForm}}
 
-						{{#unless set_details.isDefault}}
-							{{#if set_details.preview_count}}
-								<a href="#" class="execute-set-btn text-lead">
-									Preview Live page
-								</a>
-							{{else}}
-								<a href="#" class="buy-set-btn text-lead">
-									Buy
-								</a>
-							{{/if}}
-						{{/unless}}
-					</h5>
-				</div>
+			<div class="form-horizontal">
+				{{#if set_details.isDefault}}
+						<!--a href="#" class="execute-set-btn text-lead">
+							Smash it!
+						</a-->
+						<button id="test" class="btn btn-col btn-width execute-set-btn btn-primary"> Smash it!</button>
+				{{/if}}
+				{{#unless set_details.isDefault}}
+					{{#if set_details.preview_count}}
+							<!--a href="#" class="execute-set-btn text-lead">
+								Preview Live page
+							</a-->
+							<button class="btn btn-width execute-set-btn btn-success"> Preview Live Page </button>
+					{{else}}
+							<!--a href="#" class="buy-set-btn text-lead">
+								Buy
+							</a-->
+							<button class="btn btn-width buy-set-btn btn-info"> Buy </button>
+					{{/if}}
+				{{/unless}}
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12" id="menu">
+			<div class="col-xs-12" id="menu">
 			</div>
 		</div>
 		<div class="row hidden">
-			<div class="col-md-12" id="subcontent">
+			<div class="col-xs-12" id="subcontent">
 				{{> yield region='SetsDetailsSubcontent'}}
 			</div>
 		</div>
@@ -46,12 +48,12 @@
 
 <template name="SetsDetailsDetailsForm">
 	<div id="sets-details-details-form" class="">
-		<h2 id="component-title">
+		<!--h2 id="component-title">
 			<a href="#" id="form-back-button" class="btn btn-default" title="back">
 				<span class="fa fa-chevron-left">
 				</span>
 			</a>
-		</h2>
+		</h2-->
 		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
@@ -64,49 +66,40 @@
 				{{infoMessage}}
 			</div>
 			{{/if}}
-			<div class="form-group  field-set-name">
-				<label for="setName" class="col-sm-3 control-label">
-					Set Name
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static control-field-set-name">
-						{{ set_details.setName }}
-					</p>
+			
+			<div class="col-xs-12 detail-txt">
+				<div class="col-xs-6">
+					<div class="data-name pull-right">Difficulty : </div>
+				</div>
+				<div class="col-xs-6 data-value">
+					{{set_details.difficulty}}
 				</div>
 			</div>
-			<div class="form-group field-difficulty">
-				<label for="difficulty" class="col-sm-3 control-label">
-					Difficulty
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static control-field-difficulty">
-						{{set_details.difficulty}}
-					</p>
-				</div>
-			</div>
+			
 			<!-- 'new set exercises view' -->
-			<div class="form-group field-set-exercises">
-				<label for="set-exercises" class="col-xs-12 control-label">
-					Set Exercises
-				</label>
-				<div class="clearfix list-block">
+			<div class="ex-list">
+				<div class="col-xs-6">
+					<div class="data-name pull-right">Set Exercises : </div>
+				</div>
+				<div class="col-xs-6"></div>
+				<div class="col-xs-12 list-block">
 	                {{#each set_details.set_exercises_joined}}
 	                    {{#if isSingleCycle cycle}}
-	                        <div class="col-xs-3"></div>
+	                        <div class="col-xs-4"></div>
 	                    {{else}}
-	                        <div class="col-xs-3">
+	                        <div class="col-xs-4">
 	                            <div class="pull-right bracket-div">
 	                                <img class="img-bra" src="/images/bracket.png" style="height : {{ getBracketHeight exercises.length }}em;" />
 	                            </div>
-	                            <div class="stacked-icons repeat-align-second" style="margin-top: {{centerToBracket exercises.length }}em;">
-	                                <span class="fa-stack fa-2x">
-	                                    <i class="fa fa-refresh fa-stack-1x"></i>
-	                                    <span class="fa-stack-1x" style="font-size:12px; color:white;"> {{ cycle }} </span>
+	                            <div class="stacked-icons repeat-align" style="margin-top: {{centerToBracket exercises.length }}em;">
+	                                <span class="fa-stack fa-3x">
+	                                    <i class="fa fa-refresh fa-spin fa-stack-1x"></i>
+	                                    <strong class="fa-stack-1x" style="font-size:20px; color:white;"> {{ cycle }} </strong>
 	                                </span>
 	                            </div>
 	                        </div>
 	                    {{/if}}
-	                    <div class="col-xs-9">
+	                    <div class="col-xs-8">
 	                        {{#each exercises}}
 	                            <div class="ex-list">
 	                                <span class="list-dur"> {{ duration }}s </span>
@@ -119,7 +112,7 @@
 			</div>
 			<!-- end of 'new set exercises view' -->
 			<div class="form-group">
-				<div class="submit-div col-sm-9 col-sm-offset-3">
+				<div class="submit-div col-xs-9 col-xs-offset-3">
 				</div>
 			</div>
 		</form>
