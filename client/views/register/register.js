@@ -94,9 +94,7 @@ saveFreeSets = function() {
 	set_one_id = Sets.insert({setName: 'Free set 1', type: 'Interval', difficulty: 'easy', songUrl: songUrl, isDefault: true});
 	set_one_exercises = [
 		{exercises: ["Silent"], cycle: 1},
-		{exercises: ["Push ups"], cycle: 1},
-		{exercises: ["Mountain climbers","Push ups"], cycle: 2},
-		{exercises: ["Mountain climbers"], cycle: 1},
+		{exercises: ["Mountain climbers","Push ups"], cycle: 3},
 		{exercises: ["Rest"], cycle: 1},
 		{exercises: ["Iron cross", "Leg raises"], cycle: 3},
 		{exercises: ["Rest"], cycle: 1},

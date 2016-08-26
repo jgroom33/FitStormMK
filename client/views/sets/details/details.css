@@ -3,7 +3,7 @@
     background-color: #dadada;
     text-align: center;
     margin-top: 0px;
-    border-bottom: 2px solid #2196f3;
+    border-bottom: 3px solid #2196f3;
     height: 40px !important;
     width: 100%;
     font-size: 1.5em;
@@ -92,13 +92,13 @@ h2{
     position: relative;
     display: inline-block;
     width: 1em !important;
-    height: 1.8em !important;
-    line-height: 1.8em !important;
+    height: 1.5em !important;
+    line-height: 1.3em !important;
     vertical-align: middle;
 }
 
 .fa-3x {
-    font-size: 2.2em !important;
+    font-size: 3em !important;
 }
 
 .repeat-align{
@@ -113,6 +113,10 @@ h2{
 .bracket-div{
     font-size: 2em;
     padding-left: 0.2em;
+}
+
+.fa-stroke-detail {
+    -webkit-text-stroke: 6px #1a1a1a;
 }
 
 
