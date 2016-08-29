@@ -8,7 +8,10 @@ Template.ExercisesView.events({
 	"submit #dataview-controls": function(e, t) {
 		return false;
 	},
-
+	"click #to-detail-page": function(e) {
+		e.stopPropagation();
+		Router.go('exercises.details', {exerciseId: this._id});
+	},
 	"click #dataview-search-button": function(e, t) {
 		e.preventDefault();
 		var form = $(e.currentTarget).parent();
