@@ -103,7 +103,9 @@
 	                        {{#each exercises}}
 	                            <div class="ex-list">
 	                                <span class="list-dur"> {{ duration }}s </span>
-	                                <span class="list-item"> {{ exercise }} </span>
+	                                <a href="{{pathFor 'exercises.details' _id}}">
+	                                	<span class="list-item"> {{ exercise }} </span>
+	                                </a>
 	                            </div>
 	                        {{/each}}
 	                    </div>
