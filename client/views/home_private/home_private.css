@@ -1,6 +1,6 @@
 .sticky-wrapper{
     background-color: #1a1a1a;
-    
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .recent{
@@ -280,10 +280,6 @@
 
 @media only screen and (max-width : 665px) {
     
-    .panel-collapse{
-        padding-left: 0.5em;
-    }
-
     .repeat-align-second{
         margin-right: 0em;
         float: right;
@@ -297,36 +293,6 @@
         padding-left: 0.5em;
     }
 
-    .col-xs-2{
-        width: 20%;
-    }
-
-    .col-xs-10{
-        width: 80%;
-    }
 
 }
 
-@media only screen and (max-width : 474px) {
-    
-    .col-xs-2{
-        width: 25%;
-    }
-
-    .col-xs-10{
-        width: 75%;
-    }
-
-}
-
-@media only screen and (min-width : 1080px) {
-    
-    .col-xs-2{
-        width: 10%;
-    }
-
-    .col-xs-10{
-        width: 90%;
-    }
-
-}

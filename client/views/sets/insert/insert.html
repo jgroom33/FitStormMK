@@ -1,8 +1,9 @@
 <template name="SetsInsert">
 	<div class="page-container container" id="content">
 		<div class="row" id="title_row">
-			<div class="col-md-12">
-				<div id="page_menu" class="pull-right">
+			<div id="page_menu" class="set-title">
+				<div class="title-middle">
+					<span>New Set</span>
 				</div>
 			</div>
 		</div>
@@ -11,10 +12,10 @@
 </template>
 
 <template name="SetsInsertInsertForm">
-	<div id="sets-insert-insert-form" class="">
-		<h2 id="component-title">
+	<div id="sets-insert-insert-form" class="insert-form">
+		<!--h2 id="component-title">
 			New set
-		</h2>
+		</h2-->
 		<form role="form">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
@@ -28,9 +29,9 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-set-name">
-				<label for="setName">
+				<div class="option-name">
 					Set Name
-				</label>
+				</div>
 				<div class="input-div">
 					<input type="text" name="setName" value="" class="form-control" autofocus="autofocus" required="required">
 					<span id="help-text" class="help-block">
@@ -40,9 +41,9 @@
 				</div>
 			</div>
 			<div class="form-group field-type">
-				<label for="type">
+				<div class="option-name">
 					Type
-				</label>
+				</div>
 				<div class="input-div">
 					<select class="setType-field form-control" name="type" autofocus="autofocus" required="required">
 						<option selected="true" value="AMRAP"> AMRAP </option>
@@ -60,9 +61,9 @@
 			</div>
 
 			<div class="form-group field-song-id {{intervalCustomClass}}">
-				<label for="songId">
+				<div class="option-name">
 					Song (mp3 only)
-				</label>
+				</div>
 				<div class="input-div">
 					<input type="file" id="field-song-id" class="file" multiple="false" data-show-upload="false" data-show-caption="true" data-field="songId">
 					<input type="hidden" name="songId" value="">
@@ -89,18 +90,18 @@
 			</div>
 
 			<div class="form-group {{amrapCustomClass}}">
-				<label form="cap-time">
+				<div class="option-name">
 					Time Frame/Cap Time
-				</label>
+				</div>
 				<div class="input-div">
 					<input class="form-control" type="number" value="" name="timeframe" placeholder="Enter Timeframe in minutes">
 				</div>
 			</div>
 
 			<div class="form-group difficulty">
-				<label form="difficulty">
+				<div class="option-name">
 					Difficulty
-				</label>
+				</div>
 				<div class="input-div">
 					<select name="difficulty" class="form-control" value="easy">
 						<option value="easy"> Easy </option>
@@ -121,10 +122,10 @@
 				<div class="form-group  field-publish hidden">
 					<div class="input-div">
 						<div class="checkbox">
-							<label>
+							<div>
 								<input type="checkbox" value="" name="publish" data-type="bool">
 								Publish
-							</label>
+							</div>
 						</div>
 						<span id="help-text" class="help-block">
 						</span>

@@ -47,7 +47,8 @@ h2{
 
 .form-horizontal{
     text-align: center;
-    padding: 2em;
+    padding-top: 1em;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .detail-txt{
@@ -55,7 +56,6 @@ h2{
     font-size: 20px;
     text-align: left;
     width: 100%;
-    margin-bottom: 1em;
 }
 
 .ex-list{
@@ -80,6 +80,15 @@ h2{
 
 .list-block{
     padding-top: 1em;
+}
+
+.list-item{
+    color: #dadada;
+}
+
+a.list-item:hover{
+    text-decoration: none;
+    color: #ff9e45;
 }
 
 .align-center{
@@ -171,25 +180,20 @@ h2{
     }
 }
 
-@media (max-width: 548px){
-    .form-horizontal{
-        width: 548px;
-    }
 
-    .detail-txt{
-        width: 548px !important;
-    }
-
-    .form-horizontal .col-xs-6{
-
-        width: 274px !important;
+@media (max-width: 578px){
+    
+    .data-name{
+        width: 150px !important;
     }
 
     .form-horizontal .col-xs-4{
-        width: 45% !important;
+        width: 30% !important;
     }
 
     .form-horizontal .col-xs-8{
-        width: 55% !important;
+        width: 70% !important;
     }
+
+
 }
