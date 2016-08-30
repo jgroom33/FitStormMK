@@ -39,17 +39,6 @@
     text-align: center;
 }
 
-@media (max-width: 368px){
-    .exercise-name{
-        width: 100%;
-    }
-
-    .exercise-btn{
-        width: 100%;
-    }
-
-   
-}
 
 @media (min-width: 0px){
     .form-inline .form-control {
@@ -67,6 +56,14 @@
     }
 
     .search-block{
+        width: 100%;
+    }
+
+    .exercise-name{
+        width: 100%;
+    }
+
+    .exercise-btn{
         width: 100%;
     }
 
