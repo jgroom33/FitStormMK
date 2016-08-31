@@ -188,12 +188,23 @@ a.list-item:hover{
     }
 
     .form-horizontal .col-xs-4{
-        width: 30% !important;
+        width: 25% !important;
     }
 
     .form-horizontal .col-xs-8{
-        width: 70% !important;
+        width: 75% !important;
     }
 
+    .repeat-align{
+        margin-right: 0px;
+    }
+
+    .col-xs-8{
+        padding-right: 0px !important;
+    }
+
+    .bracket-div{
+        padding-left: 0px !important;
+    }
 
 }

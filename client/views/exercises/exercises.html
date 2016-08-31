@@ -31,7 +31,7 @@
 						<label class="sr-only" for="search">
 							Search
 						</label>
-						<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+						<input type="text" class="form-control search-length" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
 						<button type="button" id="dataview-search-button" class="btn btn-primary">
 							<span class="fa fa-search">
 							</span>
@@ -78,15 +78,15 @@
 			{{name}}
 		</div>
 		<div class="col-xs-3 exercise-btn">
-			
-			<div class="icon-div col-xs-6">
-				<span id="delete-button" class="fa fa-trash-o {{deleteButtonClass}}" title="Delete">
-				</span>
-			</div>
 			<div class="icon-div col-xs-6">
 				<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
 				</span>
 			</div>
+			<div class="icon-div col-xs-6">
+				<span id="delete-button" class="fa fa-trash-o {{deleteButtonClass}}" title="Delete">
+				</span>
+			</div>
+			
 			
 		</div>
 	</div>
