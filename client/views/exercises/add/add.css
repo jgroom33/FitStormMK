@@ -1,0 +1,61 @@
+.top-space{
+    margin-top: 3em;
+}
+
+.left-btn{
+    padding-right: 5px !important;
+    text-align: right; 
+}
+
+.right-btn{
+    padding-left: 5px !important;
+    text-align: left;
+}
+
+.exadd-btn{
+    width: 160px;
+}
+
+.btn-layout{
+    margin-top: 3em;
+}
+
+label{
+    font-size: 1.5em;
+    color: #2196f3;
+
+}
+
+.input-font{
+    color: #dadada !important;
+    font-size: 1.5em !important;
+}
+
+
+
+@media (min-width: 568px){
+    .left-btn {
+        padding-right: 50px !important;        
+    }
+
+    .right-btn{
+        padding-left: 50px !important;
+    }
+    
+}
+
+@media (max-width: 358px){
+    .left-btn {
+        width: 100% !important; 
+        text-align: center !important;
+        padding-right: 0px !important;       
+    }
+
+    .right-btn{
+        width: 100% !important;
+        margin-top: 10px;
+        text-align: center !important;
+        padding-left: 0px !important;
+    }
+    
+}

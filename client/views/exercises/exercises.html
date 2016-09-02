@@ -1,5 +1,5 @@
 <template name="ExercisesList">
-	<div class="page-container container" id="content">
+	<div class="page-container container container-padding" id="content">
 		<div class="row" id="title_row">
 			<div id="page_menu" class="set-title">
 				<div class="title-middle">
@@ -79,12 +79,16 @@
 		</div>
 		<div class="col-xs-3 exercise-btn">
 			<div class="icon-div col-xs-6">
-				<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
-				</span>
+				<button id="edit-button" class="btn btn-success smallbtn-width">
+					<span class="fa fa-pencil {{editButtonClass}}" title="Edit">
+					</span>
+				</button>
 			</div>
 			<div class="icon-div col-xs-6">
-				<span id="delete-button" class="fa fa-trash-o {{deleteButtonClass}}" title="Delete">
-				</span>
+				<button id="delete-button" class="btn btn-danger {{deleteButtonClass}} smallbtn-width">
+					<span class="fa fa-trash-o {{deleteButtonClass}}" title="Delete">
+					</span>
+				</button>
 			</div>
 			
 			
