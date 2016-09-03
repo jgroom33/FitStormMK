@@ -16,7 +16,8 @@ var pageSession = new ReactiveDict(),
 Template.SetsLive.rendered = function() {
 	var set_details = this.data.set_details,
 		song = Songs.findOne({ _id: set_details.songId}),
-		setExercises = isTabata(set_details.type) ? setTabataExercises(set_details.set_exercises_joined,set_details._id) : set_details.set_exercises_joined,
+		setExercises = flattenSetExercises(set_details.set_exercises_joined),
+		setExercises = isTabata(set_details.type) ? setTabataExercises(setExercises, set_details._id) : setExercises,
 		start = 1,
 		self = this;
 
@@ -51,10 +52,6 @@ Template.SetsLive.rendered = function() {
 				applyclass: "active-exercise, text-lead"
 			});
 
-		// popcorn.cue(endPlayTime - 0.5, function() {
-		// 	$('.active-exercise').fadeOut('slow').delay(1000);
-		// });
-
 		popcorn.cue(playTime - 1, function() {
 			currentExerciseIndex = self.exerciseIndex.get();
 			++ currentExerciseIndex;
@@ -72,6 +69,7 @@ Template.SetsLive.rendered = function() {
 			if(cueItem && this.currentTime() <= cueItem.timeToPlayAudio) {
 				loadCue(cueItem);
 			}
+			$(".active-exercise").delay(2000).fadeOut();
 		});
 		
 		setCue(obj, index, playTime);
@@ -348,4 +346,23 @@ getSetSong = function(set, song)
 		return set.songUrl;
 	}
 	return (song ? song.url() : null);
+}
+
+flattenSetExercises = function(sets)
+{
+	var tempSetExercises = [];
+
+	_.each(sets, function(setExercises, index) {
+		var baseId = _.uniqueId(setExercises._id + '_');
+		for(var i = 0; i < setExercises.cycle; i ++) {
+			_.each(setExercises.exercises, function(element, indx)
+			{
+				tempElement = _.clone(element);
+				tempElement._id = _.uniqueId(setExercises._id + '_' + i + '_' + indx);
+				tempSetExercises.push(tempElement);
+			});
+		}
+	});
+
+	return _.flatten(tempSetExercises);
 }
