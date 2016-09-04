@@ -189,10 +189,10 @@ Meteor.methods({
 			throw new Meteor.Error(403, "Access denied.");
 		}
 
-		// non-admin user can change only profile
 		if(!Users.isAdmin(Meteor.userId())) {
 			var keys = Object.keys(options);
-			if(keys.length !== 1 || !options.profile) {
+			// allow non-admin users to add role other than 'admin' role
+			if(keys.indexOf('roles') > -1 && options.roles.indexOf('admin') > -1) {
 				throw new Meteor.Error(403, "Access denied.");
 			}
 		}

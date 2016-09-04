@@ -39,6 +39,7 @@ var privateRoutes = [
 	"user_settings",
 	"user_settings.profile",
 	"user_settings.change_pass",
+	"user_settings.become_coach",
 	"logout"
 ];
 
@@ -223,6 +224,7 @@ Router.map(function () {
 	this.route("user_settings", {path: "/user_settings", controller: "UserSettingsController"});
 	this.route("user_settings.profile", {path: "/user_settings/profile", controller: "UserSettingsProfileController"});
 	this.route("user_settings.change_pass", {path: "/user_settings/change_pass", controller: "UserSettingsChangePassController"});
+	this.route("user_settings.become_coach", {path: "/user_settings/become_coach", controller: "UserSettingsBecomaCoachController"});
 	
 	this.route("exercises", {path: "/exercises", controller: "ExercisesController"});
 	this.route("exercises.insert", {path: "/exercises/insert", controller: "InsertExerciseController"});

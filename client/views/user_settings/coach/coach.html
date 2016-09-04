@@ -1,0 +1,35 @@
+<template name="UserSettingsBecomeCoach">
+	<div class="container">
+		<form id="go_pro" class="account-form" role="form">
+			<h2 class="text-center">
+				Become a Coach
+			</h2>
+			<p>
+				Description text here.
+			</p>
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+
+			{{#if isCoach}}
+				<div class="alert alert-success">
+					<p class="text-lead text-center">
+						You are now a coach!
+					</p>
+            	</div>			
+			{{else}}
+				<button class="btn btn-lg btn-primary btn-block" type="submit" data-loading-text="Please wait...">
+					Go Pro
+				</button>
+			{{/if}}
+		</form>
+	</div>
+</template>
