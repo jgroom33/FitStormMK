@@ -39,6 +39,8 @@
 				</span>
 			</a>
 		</li>
+		
+		{{#unless isAdmin}}
 		<li id="menu-item-simple" class="{{menuItemClass 'user_settings.become_coach'}}">
 			<a href="{{pathFor 'user_settings.become_coach'}}">
 				<span class="item-title">
@@ -46,6 +48,7 @@
 				</span>
 			</a>
 		</li>
+		{{/unless}}
 	</ul>
 </template>
 

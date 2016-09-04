@@ -14,10 +14,9 @@ Template.UserSettingsBecomeCoach.created = function() {
 };
 
 Template.UserSettingsBecomeCoach.events({
-	'submit #go_pro' : function(e, t) 
+	'submit #go_pro' : function(e, t)
 	{
 		e.preventDefault();
-		console.log(t.data.current_user_data);
 		Meteor.call("updateUserAccount", t.data.current_user_data._id, {"roles": [COACH_ROLE]} );
 	}
 });

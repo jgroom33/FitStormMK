@@ -33,5 +33,7 @@ Template.UserSettingsSideMenu.events({
 });
 
 Template.UserSettingsSideMenu.helpers({
-	
+	isAdmin: function() {
+		return Users.isAdmin(Meteor.userId());
+	}
 });
