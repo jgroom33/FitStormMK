@@ -31,8 +31,76 @@ label{
     font-size: 1.5em !important;
 }
 
+.form-control{
+    color: #dadada !important;
+}
+
+.btn-default{
+    color: #555 !important;
+}
+
+.input-group {
+    padding-top: 1em;
+}
 
 
+
+/*inner css modification*/
+.file-caption-name{
+    color: #dadada !important;
+    font-size: 16px;
+    max-height: 30px;
+}
+
+.file-thumbnail-footer .file-caption-name {
+    padding-top: 0px;
+    font-size: 15px;
+}
+
+.file-preview-frame {
+    display: table;
+    margin: 8px auto;
+    height: 160px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 5px 0px #a2958a;
+    padding: 6px;
+    text-align: center;
+    vertical-align: middle;
+    float: none;
+}
+
+.close {
+    float: right;
+    font-size: 19.5px;
+    font-weight: normal;
+    line-height: 1;
+    color: #ffffff !important;
+    text-shadow: none;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+
+.fileinput-remove-button{
+    background-image: -webkit-radial-gradient(circle, #e51c23 80%, #cb171e 81%) !important;
+    background-image: radial-gradient(circle, #e51c23 80%, #cb171e 81%) !important;
+    background-repeat: no-repeat !important;
+    background-size: 200% !important;
+    background-position: 50% !important;
+    transition: background-size 2s !important;
+    color: #ffffff !important;
+    background-color: #e51c23 !important;
+    border-color: transparent !important;
+}
+
+.kv-fileinput-caption{
+    padding: 1px 16px !important;
+}
+
+
+
+
+
+/* responsive */
 @media (min-width: 568px){
     .left-btn {
         padding-right: 50px !important;        
@@ -57,5 +125,37 @@ label{
         text-align: center !important;
         padding-left: 0px !important;
     }
-    
+   
 }
+
+@media (min-width: 200px){
+    audio{
+        width: 180px;
+    }
+}
+
+@media (min-width: 320px){
+    audio{
+        width: 260px;
+    }
+}
+
+@media (min-width: 440px){
+    audio{
+        width: 350px;
+    }
+}
+
+@media (min-width: 768px){
+    audio{
+        width: 680px;
+    }
+}
+
+@media (min-width: 1024px){
+    audio{
+        width: 900px;
+    }
+}
+
+
