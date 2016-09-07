@@ -1,0 +1,17 @@
+.col-xs-1{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.sets-font{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #dadada;
+}
+
+.align-middle{
+
+}
+
+.setname-width{
+    width: 33.3333% !important;
+}
