@@ -1,0 +1,26 @@
+<template name="CoachList">
+	<section id="radio">
+		<div class="col-xs-12">
+			{{#each this.coaches}}
+				<div class="underline">
+					<div class="list-div">
+						<div class="col-xs-4">
+							<a href="{{ pathFor 'coaches.details' coachId=_id }}">
+								<img src="http://placehold.it/150x100?text=photo" />
+							</a>
+						</div>
+						<div class="col-xs-8">
+							<a href="{{ pathFor 'coaches.details' coachId=_id }}">
+								<p class="coach-name"> {{ profile.name }} </p>
+							</a>
+							<p> 
+								<i class="fa fa-user followers" aria-hidden="true"> </i>  
+								<small> 1 </small>
+							</p>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</section>
+</template>

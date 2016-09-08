@@ -40,7 +40,9 @@ var privateRoutes = [
 	"user_settings.profile",
 	"user_settings.change_pass",
 	"user_settings.become_coach",
-	"logout"
+	"coaches",
+	"coaches.details",
+	"logout",
 ];
 
 var freeRoutes = [
@@ -230,6 +232,9 @@ Router.map(function () {
 	this.route("exercises.insert", {path: "/exercises/insert", controller: "InsertExerciseController"});
 	this.route("exercises.edit", {path: "/exercises/edit/:exerciseId", controller: "EditExerciseController"});
 	this.route("exercises.details", {path: "/exercises/details/:exerciseId", controller: "ExercisesDetailsController"});
+
+	this.route("coaches", {path: "/coaches", controller: "CoachListController"});
+	this.route("coaches.details", {path: "/coaches/details/:coachId", controller: "CoachDetailsController"});
 
 	this.route("logout", {path: "/logout", controller: "LogoutController"});
 });
