@@ -25,6 +25,11 @@
 
 }
 
+.home-layout{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 .list-div{
     display: table;
     width: 100%;

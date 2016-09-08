@@ -1,25 +1,28 @@
 <template name="CoachList">
+	<div class="set-title">
+		<div class="title-middle">
+			<span>Coaches</span>
+		</div>
+	</div>
 	<section id="radio">
-		<div class="col-xs-12">
+		<div class="">
 			{{#each this.coaches}}
-				<div class="underline">
+			<div class="underline">
+				<a href="{{ pathFor 'coaches.details' coachId=_id }}">
 					<div class="list-div">
-						<div class="col-xs-4">
-							<a href="{{ pathFor 'coaches.details' coachId=_id }}">
-								<img src="http://placehold.it/150x100?text=photo" />
-							</a>
+						<div class="col-xs-4 coach-photo">
+							<img src="http://placehold.it/150x100?text=photo" />
 						</div>
-						<div class="col-xs-8">
-							<a href="{{ pathFor 'coaches.details' coachId=_id }}">
-								<p class="coach-name"> {{ profile.name }} </p>
-							</a>
-							<p> 
-								<i class="fa fa-user followers" aria-hidden="true"> </i>  
+						<div class="col-xs-8 profile-data">
+							<div class="coach-name"> {{ profile.name }} </div>
+							<div class="follower-div">
+								<i class="fa fa-user followers" aria-hidden="true"> </i>
 								<small> 1 </small>
-							</p>
+							</div>
 						</div>
 					</div>
-				</div>
+				</a>
+			</div>
 			{{/each}}
 		</div>
 	</section>

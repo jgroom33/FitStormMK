@@ -1,0 +1,41 @@
+.coach-name{
+    color: #ff9e45;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+}
+
+.follower-div{
+    color: #dadada;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+}
+
+
+
+
+/*responsive*/
+
+@media (max-width: 356px){
+  .coach-photo{
+      width: 100% !important;
+      text-align: center;
+  }
+
+  .profile-data{
+      width: 100% !important;
+  }
+
+  .coach-name{
+      width: 100% !important;
+      text-align: center;
+      padding-left: 0px;
+  }
+
+  .follower-div{
+      width: 100% !important;
+      text-align: center;
+      padding-left: 0px;
+  }
+}

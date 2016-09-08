@@ -17,12 +17,13 @@
             <a href="/sets?type=Interval" class="btn btn-block btn-primary">Custom Interval</a>
         </div> -->
     <section id="radio">
-        <div class="row">
+        <div class="recent">
+            <button class="btn btn-lg up"><span>recent (a-z)</span></button>
+            <!--span class="txt-az">A-Z</span-->
+        </div>
+        <div class="row home-layout">
             <div class="col-xs-12">
-                <div class="recent">
-                    <button class="btn btn-lg up"><span>recent (a-z)</span></button>
-                    <!--span class="txt-az">A-Z</span-->
-                </div>
+                
                 {{#each this.set_list}}
                     <div data-toggle="collapse" class="underline" href="#{{_id}}">
                         <div class="list-div">
