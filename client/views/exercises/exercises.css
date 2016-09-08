@@ -51,7 +51,7 @@
 
 
 @media (min-width: 0px){
-    .form-inline .form-control {
+    .form-inline .search-resp {
         display: inline-block;
         vertical-align: middle;
         width: 200px;

@@ -21,7 +21,7 @@
 }
 
 label{
-    font-size: 1.5em;
+    font-size: 15px;
     color: #2196f3;
 
 }
@@ -31,9 +31,6 @@ label{
     font-size: 1.5em !important;
 }
 
-.form-control{
-    color: #dadada !important;
-}
 
 .btn-default{
     color: #555 !important;

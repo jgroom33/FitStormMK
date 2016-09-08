@@ -16,7 +16,7 @@
 		<!--h2 id="component-title">
 			New set
 		</h2-->
-		<form role="form">
+		<form role="form" class="form-div">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -33,7 +33,7 @@
 					Set Name
 				</div>
 				<div class="input-div">
-					<input type="text" name="setName" value="" class="form-control" autofocus="autofocus" required="required">
+					<input type="text" name="setName" value="" class="form-control setinput-font" autofocus="autofocus" required="required">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -45,7 +45,7 @@
 					Type
 				</div>
 				<div class="input-div">
-					<select class="setType-field form-control" name="type" autofocus="autofocus" required="required">
+					<select class="setType-field form-control setinput-font" name="type" autofocus="autofocus" required="required">
 						<option selected="true" value="AMRAP"> AMRAP </option>
 						<!-- <option value="Interval"> Interval </option> -->
 						<option value="RSFT"> RFT/SFT </option>
@@ -94,7 +94,7 @@
 					Time Frame/Cap Time
 				</div>
 				<div class="input-div">
-					<input class="form-control" type="number" value="" name="timeframe" placeholder="Enter Timeframe in minutes">
+					<input class="form-control setinput-font" type="number" value="" name="timeframe" placeholder="Enter Timeframe in minutes">
 				</div>
 			</div>
 
@@ -103,7 +103,7 @@
 					Difficulty
 				</div>
 				<div class="input-div">
-					<select name="difficulty" class="form-control" value="easy">
+					<select name="difficulty" class="form-control setinput-font" value="easy">
 						<option value="easy"> Easy </option>
 						<option value="moderate"> Moderate </option>
 						<option value="hard"> Hard </option>
@@ -134,19 +134,23 @@
 					</div>
 					<input type="hidden" name="preview_count" value="2" />
 				</div>
-				<div class="form-group">
+				<div class="form-group align-center none-margin">
 					{{> AddExercises }}
 				</div>
 				<div class="form-group">
-					<div class="submit-div">
-						<button id="form-submit-button" class="btn btn-success" type="submit">
-							<span class="fa fa-check">
-							</span>
-							Save
-						</button>
-						<a href="#" id="form-cancel-button" class="btn btn-default">
-							Cancel
-						</a>
+					<div class="submit-div col-xs-12">
+						<div class="col-xs-6 align-right right-padding">
+							<button id="form-submit-button" class="btn btn-success midbtn-width" type="submit">
+								<span class="fa fa-check">
+								</span>
+								Save
+							</button>
+						</div>
+						<div class="col-xs-6 left-padding">
+							<a href="#" id="form-cancel-button" class="btn btn-default midbtn-width">
+								Cancel
+							</a>
+						</div>
 					</div>
 				</div>
 			{{/if}}

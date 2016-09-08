@@ -2,9 +2,10 @@
 	border: 1px solid #d3d3d3; 
 	border-radius: 5px;
 	padding: 1em;
+	margin-bottom: 10px;
 }
 .new-exercise-wrapper {
-	margin: 20px 0px;
+	margin: 10px 0px;
 }
 .new-exercise-wrapper:nth-child(odd) {
 	background-color: #fafafa;
@@ -15,3 +16,45 @@
 .custom-well {
 	margin-bottom: 0 !important;
 }
+
+.dark-font{
+	color: #555 !important;
+}
+
+.title-font{
+	color: #ff9e45;
+	text-align: center;
+	font-size: 25px;
+}
+
+.select-exercise{
+	color: #555 !important;
+}
+
+.bigbtn-width{
+	width: 220px;
+}
+
+.addform-width{
+	width: 60% !important;
+}
+
+.short-left{
+	padding-left: 10px;
+}
+
+.shortma-bottom{
+	margin-bottom: 10px !important;
+}
+
+
+/*responsive*/
+
+@media only screen and (min-width : 768px) {
+    
+    .resp-center{
+        text-align: center;
+    }
+
+}
+

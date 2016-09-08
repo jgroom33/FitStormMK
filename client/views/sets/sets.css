@@ -15,3 +15,31 @@
 .setname-width{
     width: 33.3333% !important;
 }
+
+.sets-list{
+    color: #dadada;
+    font-size: 15px;
+    height: 2.5em;
+    border-bottom: 1px solid #5a5a5a;
+    border-width: thin;
+    display: table;
+}
+
+.sets-header{
+    color: #dadada;
+    font-size: 15px;
+    height: 2.5em;
+    border-bottom: 1px solid #5a5a5a;
+    border-width: thin;
+    display: table;
+}
+
+.option-name{
+    font-size: 15px;
+    color: #2196f3;
+}
+
+.setinput-font {
+    color: #dadada !important;
+    font-size: 18px !important;
+}

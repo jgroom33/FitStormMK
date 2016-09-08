@@ -3,7 +3,7 @@
   "servers": [
     {
       "host": "162.243.29.97",
-      "username": "root",
+      "username": "root@dev.smashbeats.com",
       // "password": "password"
       // or pem file (ssh based authentication)
       "pem": "~/.ssh/id_rsa"

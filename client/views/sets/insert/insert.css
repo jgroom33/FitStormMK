@@ -2,3 +2,48 @@
     color: #dadada;
     font-size: 20px;
 }
+
+.well{
+    color: #555;
+    margin-bottom: 15px !important;
+    text-align: left;
+}
+
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #ffffff;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #555 !important;
+    border-radius: 10px;
+}
+
+.midbtn-width{
+    width: 100px;
+}
+
+.align-right{
+    text-align: right;
+}
+
+.align-left{
+    text-align: left;
+}
+
+.left-padding{
+    padding-left: 10px !important;
+}
+
+.right-padding{
+    padding-right: 10px !important;
+}
+
+.none-margin{
+    margin: 0px !important;
+}

@@ -1,23 +1,23 @@
 <template name="AddExercises">
 	{{#if exerciseAction}}
 		<div>
-			<h2>
+			<div class="title-font">
 				{{ exerciseAction }} set exercises
-			</h2>
+			</div>
 			<div class="update-set-exercises">
-				<div class="form-group">
+				<div class="form-group shortma-bottom">
 					<label> Cycle: </label>
-					<input class="text-center" type="number" name="cycle" value="{{ getCycle }}" required />
+					<input class="text-center dark-font" type="number" name="cycle" value="{{ getCycle }}" required />
 				</div>
-				<ul class="form-inline no-style" role="form" id="exercise-group-wrapper">
+				<div class="form-inline no-style align-left" role="form" id="exercise-group-wrapper">
 					{{#if isAdding}}
 						{{> addSetExercisesList isReadOnly=isReadOnly exercises=exercises label=getLabel getDurationValue=getDurationValue}}
 					{{else}}
 						{{> editSetExercisesList isReadOnly=isReadOnly exercises=exercises label=getLabel selectedSetExercises=selectedSetExercises}}
 					{{/if}}
-				</ul>
+				</div>
 				<div class="form-group">
-					<button type="button" class="btn btn-primary" id="add-new-exercise"> 
+					<button type="button" class="btn btn-primary bigbtn-width" id="add-new-exercise"> 
 						<span class="fa fa-plus"></span>
 						Add Exercise
 					</button>
@@ -35,12 +35,14 @@
 			</div>
 		</div>
 	{{else}}
-		<button class="btn btn-success add-exercise" type='button'>
-			<span class="fa fa-plus"></span>
-			Add New Set Exercises
-		</button><br/>
+		<div style="padding-bottom:15px">
+			<button class="btn btn-success add-exercise bigbtn-width" type='button'>
+				<span class="fa fa-plus"></span>
+				Add New Set Exercises
+			</button>
+		</div>
 	{{/if}}
-	<br />
+	
 
 	{{#if hasExercises}}
 		{{#each getExercises}}

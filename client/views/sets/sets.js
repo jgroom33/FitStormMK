@@ -230,7 +230,7 @@ Template.SetsViewTableItems.rendered = function() {
 };
 
 Template.SetsViewTableItems.events({
-	"click td": function(e, t) {
+	"click #dataview-table-items-row": function(e, t) {
 		e.preventDefault();
 		
 		Router.go("sets.details", {setId: this._id});

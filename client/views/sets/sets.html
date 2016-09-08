@@ -30,7 +30,7 @@
 					<label class="sr-only" for="search">
 						Search
 					</label>
-					<input type="text" class="form-control search-length" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<input type="text" class="form-control search-length search-resp" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
 					<button type="button" id="dataview-search-button" class="btn btn-primary">
 						<span class="fa fa-search">
 						</span>
@@ -60,7 +60,7 @@
 <template name="SetsViewTable">
 	<div id="dataview-table" class="table table-striped table-hover sets-font">
 		<div id="dataview-table-header">
-			<div id="dataview-table-header-row" class="col-xs-12">
+			<div id="dataview-table-header-row" class="col-xs-12 sets-header">
 				<div class="th-sortable col-xs-4 setname-width align-center" data-sort="setName">
 					Set Name
 					<br>
@@ -95,8 +95,8 @@
 </template>
 
 <template name="SetsViewTableItems">
-	<div id="dataview-table-items-row" class="col-xs-12">
-		<div class="col-xs-4 setname-width align-center align-middle">
+	<div id="dataview-table-items-row" class="col-xs-12 sets-list">
+		<div class="col-xs-4 setname-width align-center">
 			{{setName}}
 			<br>
 			({{setDuration}})
