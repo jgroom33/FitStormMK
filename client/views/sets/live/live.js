@@ -58,7 +58,7 @@ Template.SetsLive.rendered = function() {
 		   	self.exerciseIndex.set(currentExerciseIndex);
 		});
 
-		exerciseList.push({startAt: playTime, cue: obj.exercise});
+		exerciseList.push({startAt: playTime, cue: obj.exercise, targetElement: target});
 		
 		if(nextExercise && (nextExercise.exercise.indexOf('Rest') > -1)) {
 			cuePlayTime = endPlayTime;
@@ -166,12 +166,16 @@ Template.SetsLive.events({
 		var exerciseLength = exerciseList.length;
 
 		if(currentExerciseIndex < exerciseLength) {
+			exerciseList[currentExerciseIndex] && $('#'+exerciseList[currentExerciseIndex].targetElement).hide();
 			++ cueItemIndex;
 			Template.instance().exerciseIndex.set(++currentExerciseIndex);
 			if(exerciseList[currentExerciseIndex]) {
 				skipTo = exerciseList[currentExerciseIndex].startAt;
 				popcorn.currentTime(skipTo);
 				audio.currentTime = skipTo;
+			}else {
+				-- cueItemIndex;
+				Template.instance().exerciseIndex.set(--currentExerciseIndex);
 			}
 		}
 	},
@@ -187,9 +191,12 @@ Template.SetsLive.events({
 			-- currentExerciseIndex;
 			-- cueItemIndex;
 			if(exerciseList[currentExerciseIndex]) {
+				$('#'+exerciseList[currentExerciseIndex].targetElement).show();
 				skipTo = exerciseList[currentExerciseIndex].startAt;
 				popcorn.currentTime(skipTo);
 				audio.currentTime = skipTo;
+			}else {
+				currentExerciseIndex = cueItemIndex = 0;
 			}
 		}
 		Template.instance().exerciseIndex.set(currentExerciseIndex);		
