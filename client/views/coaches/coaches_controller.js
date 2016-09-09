@@ -19,7 +19,7 @@ this.CoachListController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe('coach_list', Meteor.userId())
+			Meteor.subscribe('users_list', Meteor.userId())
 		];
 		var ready = true;
 		_.each(subs, function(sub) {

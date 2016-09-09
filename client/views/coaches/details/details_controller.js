@@ -19,6 +19,8 @@ this.CoachDetailsController = RouteController.extend({
 		
 
 		var subs = [
+			Meteor.subscribe('users_list', Meteor.userId()),
+			Meteor.subscribe('user_details', Meteor.userId())
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -33,10 +35,9 @@ this.CoachDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			coach: Users.find({ _id: this.params.coachId })
+			coach: Users.findOne({ _id : this.params.coachId }, {})
 		};
-				
-
+					
 		return data;
 	},
 
