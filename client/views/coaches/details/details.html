@@ -1,23 +1,24 @@
 <template name="CoachDetails">
+	<div id="page_menu" class="set-title">
+		<div class="title-middle">
+		<span> Coach Information </span>
+			<a href="{{pathFor 'coaches'}}" class="pull-left back-btn" title="back">
+				<span class="fa fa-chevron-left fa-1x"></span>
+			</a>
+		</div>
+	</div>
 	<div class="page-container container">
-		<div class="row">
-			<div id="page_menu" class="set-title">
-				<div class="title-middle">
-				<span> Coach Information </span>
-					<a href="{{pathFor 'coaches'}}" class="pull-left back-btn" title="back">
-						<span class="fa fa-chevron-left fa-1x"></span>
-					</a>
-				</div>
-			</div>
-
-			<!-- Coach information -->
-			<div class="text-center">
+		<!-- Coach information -->
+		<div class="text-center">
+			<div class="detail-photo">
 				<img src="{{ getProfilePictureSource }}" alt="Photo" />
-				<p> {{ this.coach.profile.name }} </p>
-				<div class="follower-div">
-					<i class="fa fa-user followers" aria-hidden="true"> </i>
-					<small> 1 </small>
-				</div>
+			</div>
+			<div class="detail-name">
+				{{ this.coach.profile.name }}
+			</div>
+			<div class="detail-follow">
+				<i class="fa fa-user followers" aria-hidden="true"> </i>
+				<small> 1 </small>
 			</div>
 		</div>
 	</div>
