@@ -151,31 +151,31 @@ a.list-item:hover{
         width: 750px;
     }
 
-    .col-xs-4{
+    .resp-4{
         width: 45% !important;
     }
 
-    .col-xs-8{
+    .resp-8{
         width: 55% !important;
     }
 }
 
 @media (min-width: 1028px){
-    .col-xs-4{
+    .resp-4{
         width: 45% !important;
     }
 
-    .col-xs-8{
+    .resp-8{
         width: 55% !important;
     }
 }
 
 @media (min-width: 328px){
-    .col-xs-4{
+    .resp-4{
         width: 45% !important;
     }
 
-    .col-xs-8{
+    .resp-8{
         width: 55% !important;
     }
 }

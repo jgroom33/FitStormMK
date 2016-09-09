@@ -85,9 +85,9 @@
 				<div class="col-xs-12 list-block">
 	                {{#each set_details.set_exercises_joined}}
 	                    {{#if isSingleCycle cycle}}
-	                        <div class="col-xs-4"></div>
+	                        <div class="col-xs-4 resp-4"></div>
 	                    {{else}}
-	                        <div class="col-xs-4">
+	                        <div class="col-xs-4 resp-4">
 	                            <div class="pull-right bracket-div">
 	                                <img class="img-bra" src="/images/bracket.png" style="height : {{ getBracketHeight exercises.length }}em;" />
 	                            </div>
@@ -99,7 +99,7 @@
 	                            </div>
 	                        </div>
 	                    {{/if}}
-	                    <div class="col-xs-8">
+	                    <div class="col-xs-8 resp-8">
 	                        {{#each exercises}}
 	                            <div class="ex-list">
 	                                <span class="list-dur"> {{ duration }}s </span>

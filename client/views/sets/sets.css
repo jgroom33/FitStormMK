@@ -26,7 +26,7 @@
 }
 
 .sets-header{
-    color: #dadada;
+    color: #ff9e45;
     font-size: 15px;
     height: 2.5em;
     border-bottom: 1px solid #5a5a5a;
@@ -42,4 +42,12 @@
 .setinput-font {
     color: #dadada !important;
     font-size: 18px !important;
+}
+
+.td-icon{
+    width: 25px !important;
+}
+
+.align-middle{
+    margin-top: 15px;
 }

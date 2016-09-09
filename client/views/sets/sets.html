@@ -68,10 +68,16 @@
 					Duration
 				</div-->
 				<div class="th-sortable col-xs-2 align-center" data-sort="type">
-					Type
+					<div>
+						&nbsp;
+					</div>
+					<div>Type</div>
 				</div>
 				<div class="th-sortable col-xs-2 align-center" data-sort="publish">
-					Publish
+					<div>
+						&nbsp;
+					</div>
+					<div>Publish</div>
 				</div>
 				<div class="th-sortable col-xs-2 align-center" data-sort="songId">
 					Song<br>(mp3)
@@ -102,16 +108,16 @@
 		<!--div class="col-xs-2 align-center">
 			{{setDuration}}
 		</div-->
-		<div class="col-xs-2 align-center">
+		<div class="col-xs-2 align-center align-middle">
 			{{type}}
 		</div>
-		<div class="col-xs-2 align-center">
+		<div class="col-xs-2 align-center align-middle">
 			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="publish" {{checked publish}}>
 		</div>
-		<div class="col-xs-2 align-center">
+		<div class="col-xs-2 align-center align-middle">
 			{{songId}}
 		</div>
-		<div class="col-xs-2">
+		<div class="col-xs-2 align-center align-middle">
 			<div class="td-icon col-xs-6 align-center">
 				{{#unless isDefault}}
 					<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
