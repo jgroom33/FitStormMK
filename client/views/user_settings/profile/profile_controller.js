@@ -20,7 +20,8 @@ this.UserSettingsProfileController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("current_user_data")
+			Meteor.subscribe("current_user_data"),
+			Meteor.subscribe("images")
 		];
 		var ready = true;
 		_.each(subs, function(sub) {

@@ -19,6 +19,7 @@ this.UserSettingsController = RouteController.extend({
 		
 
 		var subs = [
+			Meteor.subscribe("images"),
 		];
 		var ready = true;
 		_.each(subs, function(sub) {

@@ -19,7 +19,8 @@ this.CoachListController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe('users_list', Meteor.userId())
+			Meteor.subscribe('users_list'),
+			Meteor.subscribe('images')
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -34,7 +35,7 @@ this.CoachListController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			coaches: Meteor.users.find({ _id : { $ne: Meteor.userId() }, roles: { $in: ["coach"] } }, {})
+			coaches: Meteor.users.find({ _id : {$ne: null}, roles: { $in: ["coach"] } }, {})
 		};
 				
 

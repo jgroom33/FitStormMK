@@ -17,6 +17,8 @@ Template.UserSettingsProfileEditForm.rendered = function() {
 
 	pageSession.set("userSettingsProfileEditFormInfoMessage", "");
 	pageSession.set("userSettingsProfileEditFormErrorMessage", "");
+	pageSession.set('isUploading', false);
+	pageSession.set('isChangingPhoto', false);
 
 	$(".input-group.date").each(function() {
 		var format = $(this).find("input[type='text']").attr("data-format");
@@ -63,10 +65,12 @@ Template.UserSettingsProfileEditForm.events({
 					case "update": {
 						var message = msg || "Saved.";
 						pageSession.set("userSettingsProfileEditFormInfoMessage", message);
+						$(window).scrollTop(0);
 					}; break;
 				}
 			}
 
+			$(".fileinput-remove:visible").trigger("click");
 			Router.go("user_settings.profile", {});
 		}
 
@@ -86,7 +90,6 @@ Template.UserSettingsProfileEditForm.events({
 			},
 			function(values) {
 				
-
 				Meteor.call("updateUserAccount", t.data.current_user_data._id, values, function(e) { if(e) errorAction(e); else submitAction(); });
 			}
 		);
@@ -109,9 +112,31 @@ Template.UserSettingsProfileEditForm.events({
 		e.preventDefault();
 
 		/*BACK_REDIRECT*/
-	}
+	},
+	"change #profilePhoto": function(e, t) {
+		e.preventDefault();
+		var fileInput = $(e.currentTarget),
+			user      = t.data.current_user_data,
+			profile   = user.profile;
 
-	
+		pageSession.set('isUploading', true);
+		pageSession.set('isChangingPhoto', true);
+
+		FS.Utility.eachFile(event, function(file) {
+			Images.insert(file, function (err, fileObj) {
+				fileObj.once('uploaded', function (error, ff) {
+					pageSession.set('isUploading', false);
+					$('#profile-img-id').val(fileObj._id);
+			    });
+			});
+		});
+	},
+	"click .fileinput-remove":function(){
+		pageSession.set('isChangingPhoto', false);
+	},
+	"click #triggerPhotoUploader": function() {
+		$('#profilePhoto').trigger('click');
+	}
 });
 
 Template.UserSettingsProfileEditForm.helpers({
@@ -120,6 +145,18 @@ Template.UserSettingsProfileEditForm.helpers({
 	},
 	"errorMessage": function() {
 		return pageSession.get("userSettingsProfileEditFormErrorMessage");
+	},
+	"isCoach": function(){
+		return Users.isInRole(Meteor.userId(), 'coach');
+	},
+	"isChangingPhoto": function() {
+		return pageSession.get('isChangingPhoto');
+	},
+	getProfilePictureSource: function() {
+		var img = Images.findOne({ _id: this.current_user_data.profile.imageId });
+		if(img && typeof img.url() !== undefined) {
+			return img.url();
+		}
+		return 'http://placehold.it/150x100?text=photo';
 	}
-	
 });
