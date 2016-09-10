@@ -27,6 +27,30 @@
 				{{infoMessage}}
 			</div>
 			{{/if}}
+
+			{{#if isCoach}}
+				<div class="form-group  field-profile-photo">
+					<label for="profile.photo">
+						Profile Picture
+					</label>
+					{{#unless isChangingPhoto}}
+						<p>
+							<img src="{{ getProfilePictureSource }}" width="150" height="100" />
+						</p>
+					{{/unless}}
+					<div class="input-div">
+						<!-- <button id="triggerPhotoUploader" type="button" class="btn btn-primary"> Upload Photo </button>
+						<input type="file" id="profilePhoto" name="profile.photo" class="hidden"> -->
+						<input type="file" id="profilePhoto" class="file" multiple="false" data-show-upload="false" data-show-caption="false">
+						<input type="hidden" id="profile-img-id" name="profile.imageId" />
+						<span id="help-text" class="help-block">
+						</span>
+						<span id="error-text" class="help-block">
+						</span>
+					</div>
+				</div>
+			{{/if}}
+			
 			<div class="form-group  field-profile-name">
 				<label for="profile.name">
 					Name
@@ -51,6 +75,32 @@
 					</span>
 				</div>
 			</div>
+			{{#if isCoach}}
+				<div class="form-group field-profile-bio">
+					<label for="profile.bio">
+						About Me
+					</label>
+					<div class="input-div">
+						<textarea name="profile.bio" value="{{current_user_data.profile.bio}}" class="form-control"></textarea>
+						<span id="help-text" class="help-block">
+						</span>
+						<span id="error-text" class="help-block">
+						</span>
+					</div>
+				</div>
+				<div class="form-group field-profile-philosophy">
+					<label for="profile.philosophy">
+						Philosophy
+					</label>
+					<div class="input-div">
+						<textarea name="profile.philosophy" value="{{current_user_data.profile.philosophy}}" class="form-control"></textarea>
+						<span id="help-text" class="help-block">
+						</span>
+						<span id="error-text" class="help-block">
+						</span>
+					</div>
+				</div>
+			{{/if}}
 			<div class="form-group  field-profile-facebook">
 				<label for="profile.facebook">
 					Facebook URL
