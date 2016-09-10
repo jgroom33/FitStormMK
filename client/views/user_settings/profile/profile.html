@@ -12,9 +12,9 @@
 
 <template name="UserSettingsProfileEditForm">
 	<div id="user-settings-profile-edit-form" class="">
-		<h2 id="component-title">
+		<div id="component-title" class="setting-title">
 			Edit your profile
-		</h2>
+		</div>
 		<form role="form">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
@@ -32,7 +32,7 @@
 					Name
 				</label>
 				<div class="input-div">
-					<input type="text" name="profile.name" value="{{current_user_data.profile.name}}" class="form-control" autofocus="autofocus" required="required">
+					<input type="text" name="profile.name" value="{{current_user_data.profile.name}}" class="form-control setinput-font" autofocus="autofocus" required="required">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -44,7 +44,7 @@
 					E-mail
 				</label>
 				<div class="input-div">
-					<input type="text" name="profile.email" value="{{current_user_data.profile.email}}" class="form-control" required="required" data-type="email">
+					<input type="text" name="profile.email" value="{{current_user_data.profile.email}}" class="form-control setinput-font" required="required" data-type="email">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -56,7 +56,7 @@
 					Facebook URL
 				</label>
 				<div class="input-div">
-					<input type="text" name="profile.facebook" value="{{current_user_data.profile.facebook}}" class="form-control">
+					<input type="text" name="profile.facebook" value="{{current_user_data.profile.facebook}}" class="form-control setinput-font">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -68,7 +68,7 @@
 					Google+ URL
 				</label>
 				<div class="input-div">
-					<input type="text" name="profile.google" value="{{current_user_data.profile.google}}" class="form-control">
+					<input type="text" name="profile.google" value="{{current_user_data.profile.google}}" class="form-control setinput-font">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -80,7 +80,7 @@
 					Twitter ID
 				</label>
 				<div class="input-div">
-					<input type="text" name="profile.twitter" value="{{current_user_data.profile.twitter}}" class="form-control">
+					<input type="text" name="profile.twitter" value="{{current_user_data.profile.twitter}}" class="form-control setinput-font">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -100,7 +100,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div align-center">
 					<button id="form-submit-button" class="btn btn-success" type="submit">
 						<span class="fa fa-check">
 						</span>

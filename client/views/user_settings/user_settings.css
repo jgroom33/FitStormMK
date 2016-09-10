@@ -11,6 +11,17 @@
 .active{
     color: #fff !important;
     background: #4caf50 !important;
-    padding-bottom: 4px !important;
 }
 
+.setting-title{
+    color: #ff9e45;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tab-fit{
+    padding-bottom: 4px !important;
+}

@@ -3,7 +3,7 @@
 		<div class="row">
 			{{> UserSettingsSideMenu}}
 		</div>
-		<div id="subcontent" class="col-sm-9 col-md-10">
+		<div id="subcontent" class="col-xs-12">
 			{{> yield region='UserSettingsSubcontent'}}
 		</div>
 	</div>
@@ -13,14 +13,14 @@
 	<div id="page_menu" class="set-title">
 		<div id="menu-items" class="col-xs-12 nav nav-stacked nav-pills">
 			<a href="{{pathFor 'user_settings.profile'}}">
-				<div id="menu-item-simple" class="col-xs-3 align-center {{menuItemClass 'user_settings.profile'}}">
+				<div id="menu-item-simple" class="col-xs-3 align-center tab-fit {{menuItemClass 'user_settings.profile'}}">
 					<span class="tab-title {{menuItemClass 'user_settings.profile'}}">
 						Profile
 					</span>
 				</div>
 			</a>
 			<a href="{{pathFor 'user_settings.change_pass'}}">
-				<div id="menu-item-simple" class="col-xs-6 align-center {{menuItemClass 'user_settings.change_pass'}}">
+				<div id="menu-item-simple" class="col-xs-6 align-center tab-fit {{menuItemClass 'user_settings.change_pass'}}">
 					<span class="tab-title {{menuItemClass 'user_settings.change_pass'}}">
 						Change password
 					</span>
@@ -28,7 +28,7 @@
 			</a>
 			{{#unless isAdmin}}
 			<a href="{{pathFor 'user_settings.become_coach'}}">
-				<div id="menu-item-simple" class="col-xs-3 align-center {{menuItemClass 'user_settings.become_coach'}}">
+				<div id="menu-item-simple" class="col-xs-3 align-center tab-fit {{menuItemClass 'user_settings.become_coach'}}">
 					<span class="tab-title {{menuItemClass 'user_settings.become_coach'}}">
 						Coach
 					</span>
