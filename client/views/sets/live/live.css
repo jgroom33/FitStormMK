@@ -6,7 +6,7 @@
 }
 .active-exercise {
 	font-size: 2em;
-	color: #7f0000;
+	color: #ff9e45;
 }
 .blink {
   animation: blink-animation 1s steps(5, start) infinite;
@@ -22,4 +22,18 @@
   to {
     visibility: hidden;
   }
+}
+
+.top-padding{
+  padding-top: 20px;
+}
+
+.finish-txt{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ff9e45;
+  font-size: 25px;
+}
+
+.finish-top{
+  padding-top: 40px;
 }

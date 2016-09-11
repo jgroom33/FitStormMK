@@ -1,16 +1,14 @@
 <template name="SetsLive">
-	<div class="page-container container" id="content">
-		<div class="row" id="title_row">
-			<div class="col-md-12">
-				<button class="btn btn-default" id="go-back">
-					<span class="fa fa-chevron-left"></span>
-				</button>
-			</div>
-			<div class="col-md-12">
-				<h3 class='text-center'> {{ setDetail.setName }} </h3>
-			</div>
+	<div id="page_menu" class="set-title">
+		<div class="title-middle">
+			<span>{{ setDetail.setName }}</span>
+			<a href="{{pathFor 'sets'}}" id="form-back-button" class="pull-left back-btn" title="back">
+				<span class="fa fa-chevron-left fa-1x"></span>
+			</a>
 		</div>
-		<div class="row">
+	</div>
+	<div class="page-container container" id="content">
+		<div class="">
 			<div class="text-center">
 				<!-- popcorn js target | used div to allow popcorn to play even w/out audio uploaded-->
 				<div id="setAudio"></div>
@@ -22,14 +20,14 @@
 				</div>
 				
 				<!-- Controls -->		
-				<div>
-					<button class="btn default backward-btn {{disabledClass}}">
+				<div class="top-padding">
+					<button class="btn default btn-primary backward-btn {{disabledClass}}">
 						<span class="fa fa-backward {{disabledClass}}"></span>
 					</button>
-					<button class="btn default" id="playbutton">
+					<button class="btn default btn-success" id="playbutton">
 						<span class="fa fa-{{playBtnClass}}"></span>
 					</button>
-					<button class="btn default forward-btn {{disabledClass}}">
+					<button class="btn default btn-primary forward-btn {{disabledClass}}">
 						<span class="fa fa-forward {{disabledClass}}"></span>
 					</button>
 					<!-- <canvas id="playbutton" width="75" height="75" class=""></canvas> -->
