@@ -143,7 +143,7 @@ saveFreeSets = function() {
 				newSetExercise.exercises.push({exercise: e.name, duration: 10, exerciseId: e._id});
 			} 
 			else {
-				newSetExercise.exercises.push({exercise: e.name, duration: 30, exerciseId: e._id});
+				newSetExercise.exercises.push({exercise: e.name, duration: 20, exerciseId: e._id});
 			}
 		}
 		SetExercises.insert(newSetExercise);
