@@ -75,6 +75,7 @@ Meteor.startup(function() {
 			{name: "Plank", default_cue: Meteor.absoluteUrl() + "cues/Plank2.wav"},
 			{name: "Burpee box jump", default_cue: Meteor.absoluteUrl() + "cues/BurpeeBoxJump3.wav"},
 			{name: "Rest", default_cue: Meteor.absoluteUrl() + "cues/Rest3.wav"},
+			{name: "Star jumps", default_cue: Meteor.absoluteUrl() + "cues/SidePlank3.wav"},			
 			{name: "Side plank", default_cue: Meteor.absoluteUrl() + "cues/SidePlank3.wav"},
 			{name: "Rising Side plank - left", default_cue: Meteor.absoluteUrl() + "cues/RisingSidePlankL3.wav"},
 			{name: "Rising Side plank - right", default_cue: Meteor.absoluteUrl() + "cues/RisingSidePlankR3.wav"},
@@ -189,10 +190,10 @@ Meteor.methods({
 			throw new Meteor.Error(403, "Access denied.");
 		}
 
+		// non-admin user can change only profile
 		if(!Users.isAdmin(Meteor.userId())) {
 			var keys = Object.keys(options);
-			// allow non-admin users to add role other than 'admin' role
-			if(keys.indexOf('roles') > -1 && options.roles.indexOf('admin') > -1) {
+			if(keys.length !== 1 || !options.profile) {
 				throw new Meteor.Error(403, "Access denied.");
 			}
 		}

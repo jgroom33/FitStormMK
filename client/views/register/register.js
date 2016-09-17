@@ -89,6 +89,7 @@ Template.Register.helpers({
 saveFreeSets = function() {
 	var songUrl = Meteor.absoluteUrl() + "songs/free-song-1.mp3",
 		newSetExercise = {};
+	var songUrl2 = Meteor.absoluteUrl() + "songs/free-song-2.mp3";
 
 	// free set 1
 	set_one_id = Sets.insert({setName: 'Free set 1', type: 'Interval', difficulty: 'easy', songUrl: songUrl, isDefault: true});
@@ -111,13 +112,39 @@ saveFreeSets = function() {
 	});
 
 	// free set 2
-	set_two_id = Sets.insert({setName: 'Free set 2', type: 'Interval', difficulty: 'easy', songUrl: songUrl, isDefault: true});
-	set_two_exercises = set_one_exercises;
+	set_two_id = Sets.insert({setName: 'Free set 2', type: 'Interval', difficulty: 'easy', songUrl: songUrl2, isDefault: true});
+	set_two_exercises = [
+		{exercises: ["Silent"], cycle: 1},
+		{exercises: ["Push ups", "Mountain climbers", "Burpees"], cycle: 1},
+		{exercises: ["Rest"], cycle: 1},
+		{exercises: ["A frame push ups", "Lunges", "Star jumps"], cycle: 1},
+		{exercises: ["Rest"], cycle: 1},
+		{exercises: ["Sit ups", "Leg raises", "Iron cross"], cycle: 1},
+		{exercises: ["Rest"], cycle: 1},
+		{exercises: ["Push ups", "Mountain climbers", "Burpees"], cycle: 1},
+		{exercises: ["Rest"], cycle: 1},
+		{exercises: ["A frame push ups", "Lunges", "Star jumps"], cycle: 1},
+		{exercises: ["Rest"], cycle: 1},
+		{exercises: ["Sit ups", "Leg raises", "Iron cross"], cycle: 1},
+		{exercises: ["Rest"], cycle: 1},
+		{exercises: ["Push ups", "Mountain climbers", "Burpees"], cycle: 1},
+		{exercises: ["Rest"], cycle: 1},
+		{exercises: ["A frame push ups", "Lunges", "Star jumps"], cycle: 1},
+		{exercises: ["Rest"], cycle: 1},
+		{exercises: ["Sit ups", "Leg raises", "Iron cross"], cycle: 1},
+		{exercises: ["Rest"], cycle: 1}
+	];
 	set_two_exercises.forEach(function(exercisesObj) {
 		newSetExercise = {ownerId: Meteor.userId(), setId: set_two_id, cycle: exercisesObj.cycle, exercises: []};
+		console.log(exercisesObj.exercises.length);
 		for(var i = 0 ; i < exercisesObj.exercises.length; i ++){
 			e = Exercises.findOne({name: exercisesObj.exercises[i]});
-			newSetExercise.exercises.push({exercise: e.name, duration: 10, exerciseId: e._id});
+			if (exercisesObj.exercises[i] == "Rest" || exercisesObj.exercises[i] == "Silent") {
+				newSetExercise.exercises.push({exercise: e.name, duration: 10, exerciseId: e._id});
+			} 
+			else {
+				newSetExercise.exercises.push({exercise: e.name, duration: 30, exerciseId: e._id});
+			}
 		}
 		SetExercises.insert(newSetExercise);
 	});
