@@ -22,3 +22,17 @@ Template.registerHelper("centerToBracket", function (exer_len)
 	}
 	return (((exer_len / 2) - 1) * heightPerExercise);
 });
+
+Template.registerHelper("secsToMins", function (secs)
+{
+
+    var hours = Math.floor(secs / (60 * 60));
+   
+    var divisor_for_minutes = secs % (60 * 60);
+    var minutes = Math.floor(divisor_for_minutes / 60);
+ 
+    var divisor_for_seconds = divisor_for_minutes % 60;
+    var seconds = Math.ceil(divisor_for_seconds);
+   
+    return pluralize('min', minutes, true) + ' ' + pluralize('sec', seconds, true);
+});
