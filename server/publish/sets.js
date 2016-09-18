@@ -14,3 +14,6 @@ Meteor.publish("workout_sets", function(workoutId) {
 	return Sets.publishJoinedCursors(Sets.find({workoutId:workoutId,ownerId:this.userId}, {}));
 });
 
+Meteor.publish("free_sets", function() {
+	return Sets.publishJoinedCursors(Sets.find({isDefault: true}, {}));
+});

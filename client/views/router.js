@@ -8,10 +8,11 @@ Router.configure({
 
 var publicRoutes = [
 	"home_public",
+	"free_sets",
 	"login",
 	"register",
 	"forgot_password",
-	"reset_password"
+	"reset_password",
 ];
 
 var privateRoutes = [
@@ -30,7 +31,6 @@ var privateRoutes = [
 	"sets.details.insert",
 	"sets.details.edit",
 	"sets.edit",
-	"sets.live",
 	"sets.end",
 	"exercises",
 	"exercises.insert",
@@ -46,7 +46,7 @@ var privateRoutes = [
 ];
 
 var freeRoutes = [
-	
+	"sets.live"
 ];
 
 var roleMap = [
@@ -205,6 +205,8 @@ Router.map(function () {
 	this.route("register", {path: "/register", controller: "RegisterController"});
 	this.route("forgot_password", {path: "/forgot_password", controller: "ForgotPasswordController"});
 	this.route("reset_password", {path: "/reset_password/:resetPasswordToken", controller: "ResetPasswordController"});
+	this.route("free_sets", {path: "/free_sets", controller: "FreeSetsController"})
+
 	this.route("home_private", {path: "/home_private", controller: "HomePrivateController"});
 	this.route("workouts", {path: "/workouts", controller: "WorkoutsController"});
 	this.route("workouts.insert", {path: "/workouts/insert", controller: "WorkoutsInsertController"});

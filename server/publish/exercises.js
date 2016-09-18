@@ -1,4 +1,4 @@
-Meteor.publish("exercises", function(setId) {
+Meteor.publish("exercises", function() {
 	return Exercises.find({}, {});
 });
 

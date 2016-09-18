@@ -1,8 +1,21 @@
 this.App = {};
 this.Helpers = {};
 
-Meteor.startup(function() {
-	
+Meteor.startup(function() 
+{	
+	Meteor.subscribe("free_sets", {
+        onReady: function() {
+        	isSetsEmpty = (Sets.find({ isDefault : true }).fetch().length == 0);
+        	Meteor.subscribe("exercises", {
+		        onReady: function() {
+		        	if(isSetsEmpty)
+		        	{
+			        	saveFreeSets();
+		        	}
+		        }
+		    });
+        }
+    });
 });
 
 App.logout = function() {

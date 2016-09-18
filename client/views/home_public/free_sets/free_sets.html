@@ -1,0 +1,51 @@
+<template name="FreeSets">
+	<div class="row home-layout">
+        <div class="col-xs-12">
+            {{#each this.free_sets}}
+                <div data-toggle="collapse" class="underline" href="#{{_id}}">
+                    <div class="list-div">
+                        <div class="col-xs-6 list-title">
+                            {{ setName }}
+                        </div>
+                        <div class="dur-btn">
+                            <div class="list-btn">
+                                <button class="btn btn-col fix-width set-execution-btn pull-right btn-primary text-primary"> Smash it! </button>
+                            </div>
+                            <div class="txt-dur">{{ secsToMins setDuration }}</div>
+                        </div>
+                    </div>
+                    <div id="{{_id}}" class="panel-collapse collapse">
+                        <span class="list-dev-txt"> Exercises: </span>                                                    
+                        <div class="list-block">
+                            {{#each set_exercises_joined}}
+                                {{#if isSingleCycle cycle}}
+                                    <div class="col-xs-3"></div>
+                                {{else}}
+                                    <div class="col-xs-3">
+                                        <div class="pull-right bracket-div">
+                                            <img class="img-bra" src="/images/bracket.png" style="height : {{ getBracketHeight exercises.length }}em;" />
+                                        </div>
+                                        <div class="stacked-icons repeat-align-second" style="margin-top: {{centerToBracket exercises.length }}em;">
+                                            <span class="fa-stack fa-3x">
+                                                <i class="fa fa-refresh fa-stack-1x fa-stroke-home"></i>
+                                                <strong class="fa-stack-1x" style="font-size:25px; color:white;"> {{ cycle }} </strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                <div class="col-xs-9">
+                                    {{#each exercises}}
+                                        <div class="ex-list">
+                                            <span class="list-dur"> {{ duration }}s </span>
+                                            <span class="list-item"> {{ exercise }} </span>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</template>

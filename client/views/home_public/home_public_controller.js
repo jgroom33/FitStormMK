@@ -19,6 +19,7 @@ this.HomePublicController = RouteController.extend({
 		
 
 		var subs = [
+			Meteor.subscribe('exercises')
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
