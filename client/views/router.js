@@ -24,7 +24,6 @@ var privateRoutes = [
 	"workouts.details.edit",
 	"workouts.edit",
 	"workouts.live",
-	"sets",
 	"sets.insert",
 	"sets.details",
 	"sets.details.items",
@@ -46,7 +45,8 @@ var privateRoutes = [
 ];
 
 var freeRoutes = [
-	"sets.live"
+	"sets.live",
+	"sets"
 ];
 
 var roleMap = [

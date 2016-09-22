@@ -161,7 +161,7 @@ Template.SetsView.events({
 Template.SetsView.helpers({
 
 	"insertButtonClass": function() {
-		return Sets.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return ((Meteor.userId() && Sets.userCanInsert(Meteor.userId(), {})) ? "" : "hidden");
 	},
 
 	"isEmpty": function() {
@@ -224,8 +224,13 @@ Template.SetsViewTableItems.rendered = function() {
 Template.SetsViewTableItems.events({
 	"click #dataview-table-items-row": function(e, t) {
 		e.preventDefault();
-		
-		Router.go("sets.details", {setId: this._id});
+
+		if(Meteor.userId()) {
+			Router.go("sets.details", {setId: this._id});
+		}else {
+			Router.go("sets.live", {setId: this._id});
+		}
+
 		return false;
 	},
 

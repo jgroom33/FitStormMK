@@ -154,7 +154,7 @@ Template.SetsLive.onDestroyed(function () {
 });
 
 Template.SetsLive.events({
-	"click #go-back": function(){
+	"click #go-back, #form-back-button": function() {
 		history.back();
 	},
 	"click .forward-btn": function(e, t) {

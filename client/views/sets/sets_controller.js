@@ -32,17 +32,14 @@ this.SetsController = RouteController.extend({
 
 	data: function() {
 		
-		var typeQuery = this.params.query.type;
-
+		var focusQuery = this.params.query.focus;
+		
 		var data = {
 			params: this.params || {},
-			set_list: ((typeof typeQuery != 'undefined') ? Sets.find({type: typeQuery}, {sort:[["setName","desc"]]}) : Sets.find({}, {sort:[["setName","desc"]]})),
+			set_list: ((typeof focusQuery != 'undefined') ? Sets.find({focus: focusQuery}, {sort:[["setName","desc"]]}) : Sets.find({}, {sort:[["setName","desc"]]})),
 			set_exercises: SetExercises.find({setId:this.params.setId}, {})
 		};
 		
-
-		
-
 		return data;
 	},
 
